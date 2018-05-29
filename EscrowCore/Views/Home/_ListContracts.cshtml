@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EscrowCore.Models.Escrow>
+
+<script type="text/javascript">
+
+    function getReceipt(txHash) {
+
+        //var contract = {};
+        //console.log(txHash);
+        $.ajax({
+            type: "Get",
+            url: "/Home/GetReceipt/" + txHash,
+
+            success: function (response) {
+
+                var resString = JSON.parse(response);
+                console.log(resString);
+
+                alert("Response: " + response.responseText);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+    }
+
+</script>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TransactionHash)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Reverse())
+        {
+            <tr>
+
+                <td>
+                    <div id="@item.TransactionHash" onclick="getReceipt(this.id)" class="">
+                        <p>@item.TransactionHash</p>
+                    </div>
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
