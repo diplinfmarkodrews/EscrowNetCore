@@ -1,0 +1,12 @@
+c:\users\monty\source\repos\EscrowCore\EscrowCore\bin\Debug\netcoreapp2.0\EscrowCore.deps.json
+c:\users\monty\source\repos\EscrowCore\EscrowCore\bin\Debug\netcoreapp2.0\EscrowCore.runtimeconfig.json
+c:\users\monty\source\repos\EscrowCore\EscrowCore\bin\Debug\netcoreapp2.0\EscrowCore.runtimeconfig.dev.json
+c:\users\monty\source\repos\EscrowCore\EscrowCore\bin\Debug\netcoreapp2.0\EscrowCore.dll
+c:\users\monty\source\repos\EscrowCore\EscrowCore\obj\Debug\netcoreapp2.0\EscrowCore.csproj.CoreCompileInputs.cache
+c:\users\monty\source\repos\EscrowCore\EscrowCore\obj\Debug\netcoreapp2.0\EscrowCore.AssemblyInfoInputs.cache
+c:\users\monty\source\repos\EscrowCore\EscrowCore\obj\Debug\netcoreapp2.0\EscrowCore.AssemblyInfo.cs
+c:\users\monty\source\repos\EscrowCore\EscrowCore\bin\Debug\netcoreapp2.0\EscrowCore.pdb
+c:\users\monty\source\repos\EscrowCore\EscrowCore\obj\Debug\netcoreapp2.0\EscrowCore.dll
+c:\users\monty\source\repos\EscrowCore\EscrowCore\obj\Debug\netcoreapp2.0\EscrowCore.pdb
+c:\users\monty\source\repos\EscrowCore\EscrowCore\obj\Debug\netcoreapp2.0\EscrowCore.csprojResolveAssemblyReference.cache
+c:\users\monty\source\repos\EscrowCore\EscrowCore\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs

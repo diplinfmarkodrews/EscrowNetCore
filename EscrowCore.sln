@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscrowCore", "EscrowCore\EscrowCore.csproj", "{FDBF2462-7165-497E-8FE4-9EB30FCA1BFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDBF2462-7165-497E-8FE4-9EB30FCA1BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDBF2462-7165-497E-8FE4-9EB30FCA1BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDBF2462-7165-497E-8FE4-9EB30FCA1BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDBF2462-7165-497E-8FE4-9EB30FCA1BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11E94583-1669-4866-8B82-7AC01C53F507}
+	EndGlobalSection
+EndGlobal
