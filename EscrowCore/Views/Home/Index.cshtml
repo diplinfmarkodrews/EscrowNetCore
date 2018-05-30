@@ -6,28 +6,15 @@
 <br />
 
 <div class="row">
-    <div class="col-sm-4">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            <p>Seller's address: @Html.EditorFor(model => model.DeployContractVM.SellerAddress)       </p>
-            <p>Buyer's address:  @Html.EditorFor(model => model.DeployContractVM.BuyerAddress)        </p>
-            <p>Escrow's address: @Html.EditorFor(model => model.DeployContractVM.EscrowHolderAddress) </p>
-            <p>Amount to pay(ETH):@Html.EditorFor(model => model.DeployContractVM.EtherToPay)          </p>
-            <p>Fee in Gas:          @Html.EditorFor(model => model.DeployContractVM.GasLimit)          </p>
-            <p>Expiration date:  @Html.EditorFor(model => model.DeployContractVM.ExpiryDate)          </p>
+    <div class="col-sm-6">
+        @Html.Partial("~/Views/Home/_DeployContract.cshtml", Model)
 
-            <p> <button type=submit class="btn btn-default">Deploy</button></p>
-            <br />
-            <br />
-            <p>@Html.Raw(Model.Message)</p>
-        }
+        <p>@Html.Raw(Model.Message)</p>
     </div>
     @if(!string.IsNullOrEmpty(Model.Receipt.ContractAddress)) { 
-        <div class="col-sm-offset-2 col-sm-4">
+        <div class="col-sm-4">
 
             @Html.Partial("~/Views/Home/_Receipt.cshtml", Model.Receipt)
-
 
         </div>
     }

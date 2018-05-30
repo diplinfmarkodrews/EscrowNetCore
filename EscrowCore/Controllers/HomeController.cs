@@ -69,6 +69,7 @@ namespace EscrowCore.Controllers
             var transactionHash = await ContractAccess.DeployContract(contractParam);
             contractVM.Message = transactionHash.ToString();
             var receipt = await ContractAccess.PollReceipt(transactionHash);
+            contractVM.DeployContractVM.ContractAddress = receipt.ContractAddress;
             Escrow newContract = new Escrow(transactionHash.ToString(), contractVM.DeployContractVM);
             newContract.Receipt = new Receipt(receipt);
             using (var _context = new ApplicationDbContext())

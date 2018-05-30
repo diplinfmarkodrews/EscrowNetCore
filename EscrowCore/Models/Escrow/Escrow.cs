@@ -25,6 +25,7 @@ namespace EscrowCore.Models
         public Escrow() { }
         public Escrow(string txHash, Models.VM.DeployContractVM deploy)
         {
+            ContractAddress = deploy.ContractAddress;
             SellerAddress = deploy.SellerAddress;
             BuyerAddress = deploy.BuyerAddress;
             EscrowHolderAddress = deploy.EscrowHolderAddress;

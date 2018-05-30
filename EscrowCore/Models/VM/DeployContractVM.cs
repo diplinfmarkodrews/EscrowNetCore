@@ -20,5 +20,6 @@ namespace EscrowCore.Models.VM
         public string GasLimit { get; set; }
         [Required]
         public DateTime ExpiryDate { get; set; }
+        public string ContractAddress { get; set; }
     }
 }

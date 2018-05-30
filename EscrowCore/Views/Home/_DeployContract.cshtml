@@ -1,0 +1,47 @@
+﻿@model EscrowCore.Models.VM.ContractVM
+
+
+<h4>Deploy Contract</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.DeployContractVM.SellerAddress" class="control-label"></label>
+                <input asp-for="@Model.DeployContractVM.SellerAddress" class="form-control" />
+                <span asp-validation-for="@Model.DeployContractVM.SellerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeployContractVM.BuyerAddress" class="control-label"></label>
+                <input asp-for="@Model.DeployContractVM.BuyerAddress" class="form-control" />
+                <span asp-validation-for="@Model.DeployContractVM.BuyerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeployContractVM.EscrowHolderAddress" class="control-label"></label>
+                <input asp-for="@Model.DeployContractVM.EscrowHolderAddress" class="form-control" />
+                <span asp-validation-for="@Model.DeployContractVM.EscrowHolderAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeployContractVM.EtherToPay" class="control-label"></label>
+                <input asp-for="@Model.DeployContractVM.EtherToPay" class="form-control" />
+                <span asp-validation-for="@Model.DeployContractVM.EtherToPay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeployContractVM.GasLimit" class="control-label"></label>
+                <input asp-for="@Model.DeployContractVM.GasLimit" class="form-control" />
+                <span asp-validation-for="@Model.DeployContractVM.GasLimit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeployContractVM.ExpiryDate" class="control-label"></label>
+                <input asp-for="@Model.DeployContractVM.ExpiryDate" class="form-control" />
+                <span asp-validation-for="@Model.DeployContractVM.ExpiryDate" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Deploy" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+

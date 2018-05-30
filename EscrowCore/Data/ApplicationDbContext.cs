@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +17,7 @@ namespace EscrowCore.Data
         {
             
             optionsBuilder
-                .UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Monty\Documents\Contracts.mdf;Integrated Security=True;Connect Timeout=30")
+                .UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Monty\source\repos\EscrowCore\EscrowCore\Data\Contracts.mdf;Integrated Security=True;Connect Timeout=30")
                 .UseLoggerFactory(new LoggerFactory().AddConsole());
         }
 

@@ -15,7 +15,7 @@
                 var resString = JSON.parse(response);
                 console.log(resString);
 
-                alert("Response: " + response.responseText);
+                alert("Response: " + response.data);
             },
             failure: function (response) {
                 alert(response.responseText);
@@ -50,7 +50,7 @@
                 </td>
                 <td>
 
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", "Contract", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
             </tr>

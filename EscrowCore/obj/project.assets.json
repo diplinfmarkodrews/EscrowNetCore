@@ -14035,11 +14035,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "c:\\users\\monty\\source\\repos\\EscrowCore\\EscrowCore\\EscrowCore.csproj",
+      "projectUniqueName": "C:\\Users\\Monty\\source\\repos\\EscrowCore\\EscrowCore\\EscrowCore.csproj",
       "projectName": "EscrowCore",
-      "projectPath": "c:\\users\\monty\\source\\repos\\EscrowCore\\EscrowCore\\EscrowCore.csproj",
+      "projectPath": "C:\\Users\\Monty\\source\\repos\\EscrowCore\\EscrowCore\\EscrowCore.csproj",
       "packagesPath": "C:\\Users\\Monty\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\monty\\source\\repos\\EscrowCore\\EscrowCore\\obj\\",
+      "outputPath": "C:\\Users\\Monty\\source\\repos\\EscrowCore\\EscrowCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
