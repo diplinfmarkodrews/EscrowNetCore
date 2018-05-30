@@ -15,7 +15,10 @@ contract Escrow {
         escrow = msg.sender;
         start = now; //now is an alias for block.timestamp, not really "now"
     }
-    
+    function getBalance() public returns (uint) {
+
+        return balance;
+    }
     function accept() public {
         if (msg.sender == buyer){
             buyerOk = true;

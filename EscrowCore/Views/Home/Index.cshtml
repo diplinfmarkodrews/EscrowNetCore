@@ -21,7 +21,7 @@
 </div>
 
 
-@Html.ActionLink("Delete All", "DeleteAlltxs", "Home", null, new { @class = "btn btn-default" })
+@Html.ActionLink("Delete All", "DeleteAlltxs", "Contract", null, new { @class = "btn btn-default" })
 @if (Model.ContractList.Count() > 0)
 {
     @Html.Partial("~/Views/Home/_ListContracts.cshtml", Model.ContractList)

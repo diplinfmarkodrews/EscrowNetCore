@@ -5,6 +5,10 @@
     <UserSecretsId>aspnet-EscrowCore-584DEA48-6ABD-40EC-9DE6-FE6774BFB35C</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="Controllers\ContractController.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />

@@ -7,24 +7,59 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EscrowCore.Data;
 using EscrowCore.Models;
+using EscrowCore.Utils;
 
 namespace EscrowCore.Controllers
 {
-    public class Contract : Controller
+    public class ContractController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public Contract(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        //public ContractController(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
 
         // GET: Contract
         public async Task<IActionResult> Index()
         {
             return View(await _context.DeployedContracts.ToListAsync());
         }
+        [HttpGet]
+        public async Task<ActionResult> GetReceipt(string id)
+        {
+            var receipt = await ContractAccess.PollReceipt(id);
 
+            return Json(receipt);
+
+
+        }
+        public async Task<ActionResult> DeleteAllTxs()
+        {
+            using (var _context = new ApplicationDbContext())
+            {
+                foreach (var contract in _context.DeployedContracts.Include(p => p.Receipt))
+                {
+
+                    _context.DeployReceipt.Remove(contract.Receipt);
+                    _context.DeployedContracts.Remove(contract);
+
+                }
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index", "Home");
+        }
+        public static async Task<IEnumerable<Models.Escrow>> getContracts()
+        {
+            IEnumerable<Escrow> res;
+            using (var _context = new ApplicationDbContext())
+            {
+                res = await _context.DeployedContracts.Include(p => p.Receipt).ToListAsync();
+
+            }
+            return res;
+
+        }
         // GET: Contract/Details/5
         public async Task<IActionResult> Details(int? id)
         {

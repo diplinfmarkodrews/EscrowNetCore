@@ -15,17 +15,7 @@ namespace EscrowCore.Controllers
     public class HomeController : Controller
     {
 
-        private async Task<IEnumerable<Models.Escrow>> getContracts()
-        {
-            IEnumerable<Escrow> res;
-            using (var _context = new ApplicationDbContext())
-            {
-                res = await _context.DeployedContracts.Include(p => p.Receipt).ToListAsync();
-
-            }
-            return res;
-
-        }
+        
     public async Task<IActionResult> Index()
     {
         ContractVM contractVM = new ContractVM();
@@ -37,26 +27,12 @@ namespace EscrowCore.Controllers
         contractVM.DeployContractVM.ExpiryDate = DateTime.Now.AddDays(30);
         contractVM.DeployContractVM.GasLimit = "67412";
 
-        contractVM.ContractList = await getContracts();
+        contractVM.ContractList = await ContractController.getContracts();
 
 
         return View(contractVM);
     }
-    public async Task<ActionResult> DeleteAllTxs()
-    {
-        using (var _context = new ApplicationDbContext())
-        {
-            foreach (var contract in _context.DeployedContracts.Include(p => p.Receipt))
-            {
-
-                _context.DeployReceipt.Remove(contract.Receipt);
-                _context.DeployedContracts.Remove(contract);
-
-            }
-            await _context.SaveChangesAsync();
-        }
-        return RedirectToAction("Index");
-    }
+    
 
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -92,15 +68,7 @@ namespace EscrowCore.Controllers
 
         return View(contractVM);
     }
-    [HttpGet]
-    public async Task<ActionResult> GetReceipt(string id)
-    {
-        var receipt = await ContractAccess.PollReceipt(id);
-
-        return Json(receipt);
-
-
-    }
+    
 
     public async Task<ActionResult> Details(int id)
     {
