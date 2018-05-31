@@ -94,7 +94,7 @@ namespace EscrowCore.Utils
     }
     public class ContractAccess
     {
-
+        //Ganache
         private static string privKeySeller1 = "b41e3d6f337d1c67269dccd0aa917aad534ec641bcfdf562b1eed6fddc1fe652";
         private static string privKeyBuyer2 = "b9a5ab341cce3af5c4844b1eae23bdfbe21314705ef4aac4303e391d8edfccae";
         private static string privKeyEscrow3 = "23f3c3c52361eb074cf990fc0410609d0746d1c4004131f7b2804526c4dbb07f";
@@ -102,7 +102,7 @@ namespace EscrowCore.Utils
 
         private const string path = @"..\truffle\build\contracts\Escrow.json";
         private ContractModel ContractModel;
-        // private static AccountAccess Account = new AccountAccess();
+      
         private static Nethereum.Web3.Accounts.Account accountGanache;
        
         

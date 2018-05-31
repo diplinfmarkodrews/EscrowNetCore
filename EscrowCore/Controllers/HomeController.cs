@@ -80,19 +80,7 @@ namespace EscrowCore.Controllers
         }
     
 
-        public async Task<ActionResult> Details(int id)
-        {
-            Escrow res;
-            ContractAccess contractAccess = new ContractAccess();
-            using (var _context = new ApplicationDbContext())
-            {
-                res = await _context.DeployedContracts.FindAsync(id);
-
-            }
-            var rec = await contractAccess.PollReceipt(res.TransactionHash);
-            res.Receipt = new Receipt(rec);
-            return View(res);
-        }
+        
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
