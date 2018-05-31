@@ -1,23 +1,60 @@
 pragma solidity ^0.4.11;
+contract Status {
+  uint public timestamp;
+  uint public state;
+ constructor()
+ {
+    state = 0;
+    timestamp = now;
+ }
+ function funded() public
+ {
+   state = 1;
+   timestamp = now;
+
+ }
+ function refunded() public
+ {
+   state = 2;
+   timestamp = now;
+
+ }
+ function expired() public
+ {
+   state = 3;
+   timestamp = now;
+
+ }
+ function released() public
+ {
+   state = 4;
+   timestamp = now;
+ }
+}
 contract Escrow {
     uint balance;
+    uint balanceEscrow;
     address public buyer;
     address public seller;
     address public escrow;
     uint private start;
     uint public amount;
+    Status escrow_state;
     bool buyerOk;
     bool sellerOk;
-    constructor(address buyer_address, address seller_address) public {
+    constructor(address buyer_address, address escrow_address, uint escrow_value) public {
         // this is the constructor function that runs ONCE upon initialization
         buyer = buyer_address;
-        seller = seller_address;
-        escrow = msg.sender;
+        seller = msg.sender;
+        escrow = escrow_address;
+        amount = escrow_value;
         start = now; //now is an alias for block.timestamp, not really "now"
-    }
-    function getBalance() public returns (uint) {
+        escrow_state = new Status(); //state of escrow 0 created, 1 funded, 2 refunded, 3 expired, 4 released
 
-        return balance;
+    }
+    function GetStatus() public returns (Status){
+      return escrow_state;
+
     }
     function accept() public {
         if (msg.sender == buyer){
@@ -39,14 +76,21 @@ contract Escrow {
         // send seller the balance
         if (seller.send(this.balance)) {
             balance = 0;
+            escrow_state.released();
         } else {
             throw;
         }
     }
+    function depositEscrow() public payable {
+      if(msg.sender == seller){
+        balance += msg.value;
+      }
 
+    }
     function deposit() public payable {
         if (msg.sender == buyer) {
             balance += msg.value;
+            escrow_state.funded();
         }
     }
 
@@ -65,6 +109,7 @@ contract Escrow {
     function kill() public constant {
         if (msg.sender == escrow) {
             selfdestruct(buyer);
+
         }
     }
 }

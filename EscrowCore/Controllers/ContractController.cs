@@ -25,15 +25,15 @@ namespace EscrowCore.Controllers
         {
             return View(await _context.DeployedContracts.ToListAsync());
         }
-        [HttpGet]
-        public async Task<ActionResult> GetReceipt(string id)
-        {
-            var receipt = await ContractAccess.PollReceipt(id);
+        //[HttpGet]
+        //public async Task<ActionResult> GetReceipt(string id)
+        //{
+        //    var receipt = await ContractAccess.PollReceipt(id);
 
-            return Json(receipt);
+        //    return Json(receipt);
 
 
-        }
+        //}
         public async Task<ActionResult> DeleteAllTxs()
         {
             using (var _context = new ApplicationDbContext())
