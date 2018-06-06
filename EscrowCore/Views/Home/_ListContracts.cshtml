@@ -1,39 +1,44 @@
 ﻿@model IEnumerable<EscrowCore.Models.Escrow>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    function getReceipt(txHash) {
+        function getReceipt(txHash) {
 
-        //var contract = {};
-        //console.log(txHash);
-        $.ajax({
-            type: "Get",
-            url: "/Contract/GetReceipt/" + txHash,
+            //var contract = {};
+            //console.log(txHash);
+            $.ajax({
+                type: "Get",
+                url: "/Contract/PollReceipt/" + txHash,
 
-            success: function (response) {
+                success: function (response) {
+               
+                    $('#partialReceipt').show();
+                    var receipt = $('#partialReceipt').html(response);
+                    var List = GetList();
+                    console.log(List);
+                },
+                failure: function (response) {
+                    alert(response);
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            });
 
-                var resString = JSON.parse(response);
-                console.log(resString);
+        }
 
-                alert("Response: " + response.data);
-            },
-            failure: function (response) {
-                alert(response.responseText);
-            },
-            error: function (response) {
-                alert(response.responseText);
-            }
-        });
+    </script>
 
-    }
-
-</script>
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Network)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().TransactionHash)
             </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -42,12 +47,17 @@
         @foreach (var item in Model.Reverse())
         {
             <tr>
-
+                <td>
+                    <div id="@item.TransactionHash" onclick="getReceipt(this.id)" class="">
+                        <p>@item.Network</p>
+                    </div>
+                </td>
                 <td>
                     <div id="@item.TransactionHash" onclick="getReceipt(this.id)" class="">
                         <p>@item.TransactionHash</p>
                     </div>
                 </td>
+               
                 <td>
 
                     @Html.ActionLink("Details", "Details", "Contract", new { id = item.ID }, null) |

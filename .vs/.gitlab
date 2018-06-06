@@ -1,0 +1,13 @@
+{
+  "User": {
+    "Id": 1964714,
+    "Username": "Diplinfmarkodrews",
+    "Name": "Marko Drews",
+    "Email": "diplinfmarkodrews@gmx.de",
+    "AvatarUrl": "https://secure.gravatar.com/avatar/4867fc6db149e71bd59482f717b22327?s=80&d=identicon",
+    "PrivateToken": "337ffd4c9b9dfa3773b6bb93bded88a50aa3edaf887c2f0c7d590f93db7883f0",
+    "Host": "https://gitlab.com",
+    "TwoFactorEnabled": false,
+    "ApiVersion": 3
+  }
+}

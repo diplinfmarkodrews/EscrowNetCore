@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EscrowCore.Models.VM
 {
+    
     public class DeployContractVM
     {
         [Required]
@@ -21,5 +22,6 @@ namespace EscrowCore.Models.VM
         [Required]
         public DateTime ExpiryDate { get; set; }
         public string ContractAddress { get; set; }
+        public int Network { get; set; } 
     }
 }

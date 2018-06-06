@@ -13,23 +13,30 @@ namespace EscrowCore.Models
         Expired,
         Released
     }
+    public enum Network
+    {
+        Ganache=0,
+        Ropsten=1
+    }
     public class Escrow
     {
         public int ID { get; set; }
-        public string ContractAddress { get; set; }
+        
         public string SellerAddress { get; set; }
         public string BuyerAddress { get; set; }
         public string EscrowHolderAddress { get; set; }
         public string TransactionHash { get; set; }
+        public int Network { get; set; }
         public Receipt Receipt { get; set; }
         public Escrow() { }
         public Escrow(string txHash, Models.VM.DeployContractVM deploy)
         {
-            ContractAddress = deploy.ContractAddress;
+            
             SellerAddress = deploy.SellerAddress;
             BuyerAddress = deploy.BuyerAddress;
             EscrowHolderAddress = deploy.EscrowHolderAddress;
             TransactionHash = txHash;
+            Network = deploy.Network;
         }
     }
     public class Receipt
@@ -51,7 +58,7 @@ namespace EscrowCore.Models
         public string BlockHash { get; set; }
         public string GasUsed { get; set; }
         public string Status { get; set; }
-
+        
     }
 
 }

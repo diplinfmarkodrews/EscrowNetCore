@@ -27,7 +27,7 @@ namespace EscrowCore.Utils
             GetV[2] = vM.EtherToPay;
 
         }
-
+        
         public object[] GetV { get; set; }
         public string SenderAddress { get; set; }
         public Nethereum.Hex.HexTypes.HexBigInteger GasLimit { get; set; }
@@ -103,23 +103,35 @@ namespace EscrowCore.Utils
         private const string path = @"..\truffle\build\contracts\Escrow.json";
         private ContractModel ContractModel;
       
-        private static Nethereum.Web3.Accounts.Account accountGanache;
+        private  Nethereum.Web3.Accounts.Account accountGanache;
        
         
 
-        private static Nethereum.Web3.Accounts.Managed.ManagedAccount accountRopsten;
-        private static Web3 web3;
+        private Nethereum.Web3.Accounts.Managed.ManagedAccount accountRopsten; 
+        private Web3 web3;
+       
         private static string account = "0x005e44B5ce1E91c2ee3b6e13B52F174b664b8124";
         private static string password = "c4Gpy05647gtWQp056";
 
-        public ContractAccess()
+        public ContractAccess(int network)
         {
+            switch (network)
+            {
+                case 1:
+                    accountRopsten = new Nethereum.Web3.Accounts.Managed.ManagedAccount(account, password);
+                    web3 = new Web3(accountRopsten, "http://localhost:8545");
+
+                    break;
+                default:
+                    accountGanache = new Nethereum.Web3.Accounts.Account(privKeySeller1);
+
+                    web3 = new Web3(accountGanache, "http://localhost:7545"); //Account #3 Ganache
+                    break;
+
+            }   
            
-          
-            //accountGanache = new Nethereum.Web3.Accounts.Account(privKeySeller1);
-            accountRopsten = new Nethereum.Web3.Accounts.Managed.ManagedAccount(account, password);
-            web3 = new Web3(accountRopsten, "http://localhost:8545");// = new Web3(accountGanache, "http://localhost:7545"); //Account #3 Ganache
             ContractModel = new ContractModel(path);
+
         }
         public async Task<string> DeployContract(ContractParam param)
         {

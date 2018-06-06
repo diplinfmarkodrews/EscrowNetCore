@@ -5,14 +5,20 @@
     <UserSecretsId>aspnet-EscrowCore-584DEA48-6ABD-40EC-9DE6-FE6774BFB35C</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\js\test.js" />
+  </ItemGroup>
+
 
   <ItemGroup>
+    <PackageReference Include="bootbox" Version="4.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.5" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="3.2.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
     <PackageReference Include="Nethereum.HdWallet" Version="2.4.0" />
     <PackageReference Include="Nethereum.Parity" Version="2.4.0" />
-    <PackageReference Include="React.AspNet" Version="3.3.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0-rc1" />
   </ItemGroup>
 

@@ -1,147 +1,191 @@
 ﻿@model EscrowCore.Models.VM.ContractVM
+@using Newtonsoft.Json;
 @{
     ViewData["Title"] = "Escrow";
 }
+
 
 <br />
 
 <div class="row">
     <div class="col-sm-6">
-        @Html.Partial("~/Views/Home/_DeployContract.cshtml", Model)
-
-        <p>@Html.Raw(Model.Message)</p>
+        <form id="deploy">
+            @Html.AntiForgeryToken()
+            @Html.Partial("~/Views/Home/_DeployContract.cshtml", Model.DeployContractVM)
+            <input type="button" id="btnDeploy" value="Deploy" class="btn btn-primary" />
+        </form>
+        <br/>
+        <p id="txHash"></p>
     </div>
-    @if(!string.IsNullOrEmpty(Model.Receipt.ContractAddress)) { 
-        <div class="col-sm-4">
+   
+    <div id="partialReceipt" class="col-sm-4">
 
-            @Html.Partial("~/Views/Home/_Receipt.cshtml", Model.Receipt)
+        @Html.Partial("~/Views/Home/_Receipt.cshtml", Model.Receipt)
 
+    </div>
+   
+</div>
+
+<div class="row">
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- dialog body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    TxHash:
+                    <div id="modalText" data->
+                        
+                    </div>
+                </div>
+                <!-- dialog buttons -->
+                <div class="modal-footer"><input id="btnPollReceipt" type="button" value="Get Receipt" class="btn btn-primary"></div>
+            </div>
         </div>
-    }
+    </div>
 </div>
 
 
 @Html.ActionLink("Delete All", "DeleteAlltxs", "Contract", null, new { @class = "btn btn-default" })
-@if (Model.ContractList.Count() > 0)
-{
-    @Html.Partial("~/Views/Home/_ListContracts.cshtml", Model.ContractList)
+<div class="row">
+  
+        <div id="ListView">
+            @Html.Partial("~/Views/Home/_ListContracts.cshtml", Model.ContractList)
+        </div>
+    
+</div>
+@section scripts{
+
+    <script>
+
+        $(function () {
+            if ($('@Model.Receipt.ContractAddress' == null))
+            {
+                $('#partialReceipt').hide();
+
+            }
+           
+            $('#NetworkSelect').on('change', function () {
+                var net=$('#NetworkSelect').html();
+                console.log("changed"+net);
+
+                
+
+            });
+
+            $("#myModal").on("hide", function () {    // remove the event listeners when the dialog is dismissed
+                $("#myModal a.btn").off("click");
+            });
+
+            $("#myModal").on("hidden", function () {  // remove the actual elements from the DOM when fully hidden
+                $("#myModal").remove();
+            });
+
+            $("#myModal").modal({                    // wire up the actual modal functionality and show the dialog
+                "backdrop": "static",
+                "keyboard": true,
+                "show": false                     // ensure the modal is shown immediately
+            });
+
+            var GetList = function ()
+            {
+                $.ajax({
+                    type: "GET",
+                    url: "/Contract/GetListView/",
+                    traditional: true,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                    success: function (response) {
+                        console.log(response);
+                        $('#ListView').html(response);
+
+                    },
+                    failure: function (response) {
+                        alert(response);
+                    }
+                });
+
+
+            }
+
+
+            $('#btnDeploy').on('click', function () {
+
+
+
+                @*console.log(JSON.stringify(@dataModel));*@
+                var dataModel = @Json.Serialize(Model.DeployContractVM);
+
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Contract/DeployContract/",
+                    traditional:true,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    data:  dataModel
+                    ,
+                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        $('#modalText').html(response);
+                        $('#txHash').html("txHash: "+response);
+                        $('#myModal').modal('show');
+                    },
+                    failure: function (response) {
+                        alert(response);
+                    }
+                });
+            })
+
+            $('#btnPollReceipt').on('click', function () {
+
+
+                $('#myModal').modal('hide');
+                @*console.log(JSON.stringify(@dataModel));*@
+                // var dataModel = $('@Model.Receipt');
+                var hash = $('#modalText').html();
+                console.log(hash);
+
+
+
+                $.ajax({
+                    type: "GET",
+                    url: "/Contract/PollReceipt/" + hash,
+                    traditional:true,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+
+
+                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+
+                    success: function (response) {
+                        $('#partialReceipt').show();
+                        var receipt = $('#partialReceipt').html(response);
+                        var List = GetList();
+                        console.log(List);
+                    },
+                    failure: function (response) {
+                        alert(response);
+                    }
+                });
+            })
+
+
+
+    });//ready
+
+    </script>
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
-</div>*@
