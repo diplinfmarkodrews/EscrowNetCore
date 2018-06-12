@@ -14,7 +14,13 @@
             <div id="deploy">
                 @Html.Partial("~/Views/Home/_DeployContract.cshtml", Model.DeployContractVM)
             </div>
-            <input type="button" id="btnDeploy" value="Deploy" class="btn btn-primary col-sm-3" />
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <input type="button" id="btnDeploy" value="Deploy" class="btn btn-primary col-sm-3" />
+                    <div id="GasPrice" class="col-sm-5"></div>
+                </div>
+            </div>
         </form>
         <br />
 
@@ -27,13 +33,7 @@
     </div>
 
 </div>
-<div class="row">
-    <br />
-    <br />
-    <div>
-        <p id="txHash"></p>
-    </div>
-</div>
+
 <div class="row">
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
@@ -92,29 +92,7 @@
                 "show": false                     // ensure the modal is shown immediately
             });
 
-            var GetList = function ()
-            {
-                $.ajax({
-                    type: "GET",
-                    url: "/Contract/GetListView/",
-                    traditional: true,
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader("XSRF-TOKEN",
-                            $('input:hidden[name="__RequestVerificationToken"]').val());
-                    },
-                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                    success: function (response) {
-                        
-                        $('#ListView').html(response);
-
-                    },
-                    failure: function (response) {
-                        alert(response);
-                    }
-                });
-
-
-            }
+           
 
 
             $('#btnDeploy').on('click', function () {
@@ -124,7 +102,7 @@
                   
 
                 $.ajax({
-                       type: "POST",
+                    type: "POST",
                     url: "/Contract/DeployContract/",
                     traditional:true,
                     beforeSend: function (xhr) {
@@ -136,9 +114,9 @@
                     contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                     dataType: "json",
                     success: function (response) {
-                           console.log(response);
+                         
                         $('#modalText').html(response);
-                        $('#txHash').html("txHash: "+response);
+                        
                         $('#myModal').modal('show');
                         GetList();
                        },
@@ -155,73 +133,120 @@
                 @*console.log(JSON.stringify(@dataModel));*@
                 // var dataModel = $('@Model.Receipt');
                 var hash = $('#modalText').html();
-                console.log(hash);
+                
 
                 callGetReceiptPartial(hash);
-
+                
 
             })
 
 
 
         });//ready
-                function callGetReceiptPartial(hash) {
-                    var id = hash;
-                    $.ajax({
-                        type: "GET",
-                        url: "/Contract/PollReceipt/" + id,
-                        traditional: true,
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader("XSRF-TOKEN",
-                                $('input:hidden[name="__RequestVerificationToken"]').val());
-                        },
 
 
-                        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        function GetList() {
+            $.ajax({
+                type: "GET",
+                url: "/Contract/GetListView/",
+                traditional: true,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                success: function (response) {
 
-                        success: function (response) {
-                            $('#partialReceipt').show();
-                            var receipt = $('#partialReceipt').html(response);
-                            var List = GetList();
-                            console.log(List);
-                        },
-                        failure: function (response) {
-                            alert(response);
-                        }
-                    });
+                    $('#ListView').html(response);
 
+                },
+                failure: function (response) {
+                    alert(response);
                 }
-                function callNetworkChange() {
-                    var id = document.getElementById("Network").value;
-
-                    console.log(id);
+            });
 
 
-
-                    $.ajax({
-                        type: "GET",
-                        url: "/Home/ChangeNetwork/" + id,
-                        traditional: true,
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader("XSRF-TOKEN",
-                                $('input:hidden[name="__RequestVerificationToken"]').val());
-                        },
-                        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                        success: function (response) {
-                            // console.log(response);
-
-                            $('#deploy').html(response);
-                            // $('#Network').on('input', callNetworkChange());
-
-                        },
-                        failure: function (response) {
-                            alert(response);
-                        }
-
-                    });
+        }
+        function callGetReceiptPartial(hash) {
+            var id = hash;
+            $.ajax({
+                type: "GET",
+                url: "/Contract/PollReceipt/" + id,
+                traditional: true,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
 
 
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+
+                success: function (response) {
+                    $('#partialReceipt').show();
+                    var receipt = $('#partialReceipt').html(response);
+                    $('#txHashReceipt').html(hash);
+                    GetList();
+                    
+                },
+                failure: function (response) {
+                    alert(response);
                 }
+            });
+
+        }
+        function UpdateGasPrice()
+        {
+            var dataModel = $('form').serialize();
+            $.ajax({
+                type: "POST",
+                url: "/Contract/ShowEstimatedGasPrice/",
+                traditional: true,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                data: dataModel,
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                dataType: "json",
+                success: function (response) {
+
+                   $('#GasPrice').html("<strong>Estimated Gas Usage: </strong>"+response+ " Wei")
+                },
+                failure: function (response) {
+                    alert(response);
+                }
+            });
+
+
+         }
+        function callNetworkChange() {
+            var id = document.getElementById("Network").value;
+
+            console.log(id);
+
+            $.ajax({
+                type: "GET",
+                url: "/Home/ChangeNetwork/" + id,
+                traditional: true,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                success: function (response) {
+                    
+                    $('#deploy').html(response);
+                    UpdateGasPrice(id);
+                    
+                },
+                failure: function (response) {
+                    alert(response);
+                }
+
+            });
+
+
+        }
             </script>
         }
 

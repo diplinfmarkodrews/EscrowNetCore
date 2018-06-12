@@ -15,6 +15,7 @@
                
                     $('#partialReceipt').show();
                     var receipt = $('#partialReceipt').html(response);
+                    $('#txHashReceipt').html(id);
                     var List = GetList();
                     console.log(List);
                 },
@@ -50,7 +51,7 @@
             <tr>
                 <td>
                     <div id="@item.TransactionHash" onclick="getReceipt(this.id)" class="">
-                        <p>@item.Network</p>
+                        <p>@((Network)item.Network)</p>
                     </div>
                 </td>
                 <td>

@@ -46,8 +46,12 @@ namespace EscrowCore.Models
 
 
             ContractAddress = receipt.ContractAddress.ToString();
-            BlockHash = receipt.BlockHash.ToString();
-            BlockNumber = receipt.BlockNumber.HexValue;
+            if (receipt.BlockHash!=null)
+            {
+                BlockHash = receipt.BlockHash.ToString();
+                BlockNumber = receipt.BlockNumber.HexValue;
+            }
+            
             GasUsed = receipt.GasUsed.HexValue;
             Status = receipt.Status.HexValue;
         }
@@ -58,6 +62,7 @@ namespace EscrowCore.Models
         public string BlockHash { get; set; }
         public string GasUsed { get; set; }
         public string Status { get; set; }
+        
         
     }
 

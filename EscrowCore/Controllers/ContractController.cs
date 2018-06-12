@@ -41,7 +41,7 @@ namespace EscrowCore.Controllers
                     await _context.SaveChangesAsync();
                     //contractVM.ContractList = await _context.DeployedContracts.Include(p => p.Receipt).ToListAsync();
                 }
-                Log.Information("Contract Deployed! TxHash: " + transactionHash);
+                Log.Information("Contract Deployed at network: "+ contractVM.Network.ToString() +", TxHash: " + transactionHash);
                 return new JsonResult(transactionHash);
             }
             catch (Exception e)
@@ -51,6 +51,14 @@ namespace EscrowCore.Controllers
 
             
         }
+        public async Task<IActionResult> ShowEstimatedGasPrice(DeployContractVM contractVM)
+        {
+            ContractAccess contractAccess = new ContractAccess((int)contractVM.Network);
+            ContractParam param = new ContractParam(contractVM);
+            var gasPrice = await contractAccess.GetGasLimit(param);
+            return new JsonResult(gasPrice);
+        }
+
         public async Task<IActionResult> PollReceipt(string id)
         {
             Receipt res;
@@ -62,10 +70,7 @@ namespace EscrowCore.Controllers
 
                     ContractAccess contractAccess = new ContractAccess(contract.Network);
                     var receipt = await contractAccess.PollReceipt(id);
-                    res = new Receipt(receipt);
-
-
-                   
+                    res = new Receipt(receipt);                  
                     context.Entry(contract).Entity.Receipt = res;
                     
                     context.DeployReceipt.Add(res);

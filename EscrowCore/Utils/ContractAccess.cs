@@ -144,7 +144,7 @@ namespace EscrowCore.Utils
         public async Task<string> GetGasLimit(ContractParam param)
         {
             Nethereum.Hex.HexTypes.HexBigInteger gasEstimate = await web3.Eth.DeployContract.EstimateGasAsync(ContractModel.ABI.ToString(), ContractModel.ByteCode.ToString(), param.SenderAddress, param.GetV);
-            return gasEstimate.ToString();
+            return gasEstimate.Value.ToString();
         }
         public async Task<Nethereum.RPC.Eth.DTOs.TransactionReceipt> PollReceipt(string transactionHash)
         {
@@ -152,7 +152,7 @@ namespace EscrowCore.Utils
             {
                 //var request = new Nethereum.RPC.Eth.Transactions.EthGetTransactionReceipt(web3);
                 Nethereum.RPC.Eth.DTOs.TransactionReceipt receipt = await web3.Eth.DeployContract.TransactionManager.TransactionReceiptService.PollForReceiptAsync(transactionHash);
-
+                //receipt = await web3.Eth.Transactions.GetTransactionReceipt.SendRequestAsync(transactionHash);
                 while (receipt == null)
                 {
                     Thread.Sleep(5000);
