@@ -19,8 +19,12 @@
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.5" />
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="3.2.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
-    <PackageReference Include="Nethereum.HdWallet" Version="2.4.0" />
+    <PackageReference Include="Nethereum.HdWallet" Version="2.5.1" />
     <PackageReference Include="Nethereum.Parity" Version="2.4.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.2-dev-00024" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.0.0-dev-00112" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.2-dev-00777" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00771" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0-rc1" />
     <PackageReference Include="System.Net.Http" Version="4.3.3" />
   </ItemGroup>

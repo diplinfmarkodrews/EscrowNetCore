@@ -1759,7 +1759,7 @@
           "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
         }
       },
-      "Microsoft.DotNet.PlatformAbstractions/2.0.3": {
+      "Microsoft.DotNet.PlatformAbstractions/2.0.4": {
         "type": "package",
         "dependencies": {
           "System.AppContext": "4.1.0",
@@ -2099,10 +2099,10 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.DependencyModel/2.0.3": {
+      "Microsoft.Extensions.DependencyModel/2.0.4": {
         "type": "package",
         "dependencies": {
-          "Microsoft.DotNet.PlatformAbstractions": "2.0.3",
+          "Microsoft.DotNet.PlatformAbstractions": "2.0.4",
           "Newtonsoft.Json": "9.0.1",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Dynamic.Runtime": "4.0.11",
@@ -2906,35 +2906,26 @@
           }
         }
       },
-      "NBitcoin/4.0.0.38": {
+      "NBitcoin/4.1.1.10": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "9.0.1",
-          "System.Collections.NonGeneric": "4.3.0",
-          "System.Globalization.Extensions": "4.3.0",
-          "System.Net.Http": "4.3.2",
-          "System.Net.NameResolution": "4.3.0",
-          "System.Net.Requests": "4.3.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
-          "System.Security.Cryptography.Csp": "4.3.0",
-          "System.Threading.Tasks.Parallel": "4.3.0",
-          "System.Threading.Thread": "4.3.0"
+          "Newtonsoft.Json": "11.0.2",
+          "System.Net.Http": "4.3.3",
+          "System.Net.Requests": "4.3.0"
         },
         "compile": {
-          "lib/netstandard1.3/NBitcoin.dll": {}
+          "lib/netstandard2.0/NBitcoin.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/NBitcoin.dll": {}
+          "lib/netstandard2.0/NBitcoin.dll": {}
         }
       },
-      "Nethereum.ABI/2.4.0": {
+      "Nethereum.ABI/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.Hex": "2.4.0",
-          "Nethereum.Util": "2.4.0",
-          "Portable.BouncyCastle": "1.8.1.1"
+          "Nethereum.Hex": "2.5.1",
+          "Nethereum.Util": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.ABI.dll": {}
@@ -2943,14 +2934,14 @@
           "lib/netstandard1.1/Nethereum.ABI.dll": {}
         }
       },
-      "Nethereum.Accounts/2.4.0": {
+      "Nethereum.Accounts/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.KeyStore": "2.4.0",
-          "Nethereum.RPC": "2.4.0",
-          "Nethereum.Signer": "2.4.0",
-          "Nethereum.Util": "2.4.0"
+          "Nethereum.KeyStore": "2.5.1",
+          "Nethereum.RPC": "2.5.1",
+          "Nethereum.Signer": "2.5.1",
+          "Nethereum.Util": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.Accounts.dll": {}
@@ -2959,13 +2950,13 @@
           "lib/netstandard1.1/Nethereum.Accounts.dll": {}
         }
       },
-      "Nethereum.Contracts/2.4.0": {
+      "Nethereum.Contracts/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.ABI": "2.4.0",
-          "Nethereum.Hex": "2.4.0",
-          "Nethereum.RPC": "2.4.0"
+          "Nethereum.ABI": "2.5.1",
+          "Nethereum.Hex": "2.5.1",
+          "Nethereum.RPC": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.Contracts.dll": {}
@@ -2974,13 +2965,12 @@
           "lib/netstandard1.1/Nethereum.Contracts.dll": {}
         }
       },
-      "Nethereum.HdWallet/2.4.0": {
+      "Nethereum.HdWallet/2.5.1": {
         "type": "package",
         "dependencies": {
-          "NBitcoin": "4.0.0.38",
+          "NBitcoin": "4.1.1.10",
           "NETStandard.Library": "1.6.1",
-          "Nethereum.Web3": "2.4.0",
-          "Portable.BouncyCastle": "1.8.1.1"
+          "Nethereum.Web3": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.HdWallet.dll": {}
@@ -2989,7 +2979,7 @@
           "lib/netstandard1.1/Nethereum.HdWallet.dll": {}
         }
       },
-      "Nethereum.Hex/2.4.0": {
+      "Nethereum.Hex/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -3002,7 +2992,7 @@
           "lib/netstandard1.1/Nethereum.Hex.dll": {}
         }
       },
-      "Nethereum.JsonRpc.Client/2.4.0": {
+      "Nethereum.JsonRpc.Client/2.5.1": {
         "type": "package",
         "dependencies": {
           "Common.Logging.Core": "3.4.1",
@@ -3016,12 +3006,12 @@
           "lib/netstandard1.1/Nethereum.JsonRpc.Client.dll": {}
         }
       },
-      "Nethereum.JsonRpc.RpcClient/2.4.0": {
+      "Nethereum.JsonRpc.RpcClient/2.5.1": {
         "type": "package",
         "dependencies": {
           "Common.Logging.Core": "3.4.1",
           "NETStandard.Library": "1.6.1",
-          "Nethereum.JsonRpc.Client": "2.4.0",
+          "Nethereum.JsonRpc.Client": "2.5.1",
           "Newtonsoft.Json": "10.0.3"
         },
         "compile": {
@@ -3031,12 +3021,12 @@
           "lib/netstandard1.1/Nethereum.JsonRpc.RpcClient.dll": {}
         }
       },
-      "Nethereum.KeyStore/2.4.0": {
+      "Nethereum.KeyStore/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.Hex": "2.4.0",
-          "Portable.BouncyCastle": "1.8.1.1"
+          "Nethereum.Hex": "2.5.1",
+          "Portable.BouncyCastle": "1.8.2"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.KeyStore.dll": {}
@@ -3059,11 +3049,11 @@
           "lib/netstandard1.1/Nethereum.Parity.dll": {}
         }
       },
-      "Nethereum.RLP/2.4.0": {
+      "Nethereum.RLP/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.Hex": "2.4.0"
+          "Nethereum.Hex": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.RLP.dll": {}
@@ -3072,12 +3062,12 @@
           "lib/netstandard1.1/Nethereum.RLP.dll": {}
         }
       },
-      "Nethereum.RPC/2.4.0": {
+      "Nethereum.RPC/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.Hex": "2.4.0",
-          "Nethereum.JsonRpc.Client": "2.4.0"
+          "Nethereum.Hex": "2.5.1",
+          "Nethereum.JsonRpc.Client": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.RPC.dll": {}
@@ -3086,14 +3076,13 @@
           "lib/netstandard1.1/Nethereum.RPC.dll": {}
         }
       },
-      "Nethereum.Signer/2.4.0": {
+      "Nethereum.Signer/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.Hex": "2.4.0",
-          "Nethereum.RLP": "2.4.0",
-          "Nethereum.Util": "2.4.0",
-          "Portable.BouncyCastle": "1.8.1.1"
+          "Nethereum.Hex": "2.5.1",
+          "Nethereum.RLP": "2.5.1",
+          "Nethereum.Util": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.Signer.dll": {}
@@ -3102,12 +3091,12 @@
           "lib/netstandard1.1/Nethereum.Signer.dll": {}
         }
       },
-      "Nethereum.Util/2.4.0": {
+      "Nethereum.Util/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.Hex": "2.4.0",
-          "Portable.BouncyCastle": "1.8.1.1"
+          "Nethereum.Hex": "2.5.1",
+          "Portable.BouncyCastle": "1.8.2"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.Util.dll": {}
@@ -3116,19 +3105,19 @@
           "lib/netstandard1.1/Nethereum.Util.dll": {}
         }
       },
-      "Nethereum.Web3/2.4.0": {
+      "Nethereum.Web3/2.5.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Nethereum.ABI": "2.4.0",
-          "Nethereum.Accounts": "2.4.0",
-          "Nethereum.Contracts": "2.4.0",
-          "Nethereum.Hex": "2.4.0",
-          "Nethereum.JsonRpc.RpcClient": "2.4.0",
-          "Nethereum.KeyStore": "2.4.0",
-          "Nethereum.RPC": "2.4.0",
-          "Nethereum.Signer": "2.4.0",
-          "Nethereum.Util": "2.4.0"
+          "Nethereum.ABI": "2.5.1",
+          "Nethereum.Accounts": "2.5.1",
+          "Nethereum.Contracts": "2.5.1",
+          "Nethereum.Hex": "2.5.1",
+          "Nethereum.JsonRpc.RpcClient": "2.5.1",
+          "Nethereum.KeyStore": "2.5.1",
+          "Nethereum.RPC": "2.5.1",
+          "Nethereum.Signer": "2.5.1",
+          "Nethereum.Util": "2.5.1"
         },
         "compile": {
           "lib/netstandard1.1/Nethereum.Web3.dll": {}
@@ -3152,21 +3141,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/10.0.3": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
-        "dependencies": {
-          "Microsoft.CSharp": "4.3.0",
-          "NETStandard.Library": "1.6.1",
-          "System.ComponentModel.TypeConverter": "4.3.0",
-          "System.Runtime.Serialization.Formatters": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0",
-          "System.Xml.XmlDocument": "4.3.0"
-        },
         "compile": {
-          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "Newtonsoft.Json.Bson/1.0.1": {
@@ -3444,6 +3425,122 @@
           }
         }
       },
+      "Serilog/2.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1",
+          "System.Collections": "4.0.11",
+          "System.Collections.NonGeneric": "4.0.1",
+          "System.Dynamic.Runtime": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.3/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Serilog.dll": {}
+        }
+      },
+      "Serilog.AspNetCore/2.1.2-dev-00024": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.Extensions.Logging": "2.0.0",
+          "Serilog": "2.5.0",
+          "Serilog.Extensions.Logging": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.AspNetCore.dll": {}
+        }
+      },
+      "Serilog.Extensions.Logging/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "2.0.0",
+          "Serilog": "2.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Extensions.Logging.dll": {}
+        }
+      },
+      "Serilog.Settings.Configuration/3.0.0-dev-00112": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.1",
+          "Microsoft.Extensions.DependencyModel": "2.0.4",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "2.0.0",
+          "Serilog": "2.6.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {}
+        }
+      },
+      "Serilog.Sinks.Console/3.1.2-dev-00777": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0",
+          "System.Console": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
+        },
+        "compile": {
+          "lib/netcoreapp1.1/Serilog.Sinks.Console.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.1/Serilog.Sinks.Console.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/3.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.3.0",
+          "System.IO": "4.1.0",
+          "System.IO.FileSystem": "4.0.1",
+          "System.IO.FileSystem.Primitives": "4.0.1",
+          "System.Text.Encoding.Extensions": "4.0.11",
+          "System.Threading": "4.0.11",
+          "System.Threading.Timer": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Serilog.Sinks.File.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "Serilog.Sinks.RollingFile/3.3.1-dev-00771": {
+        "type": "package",
+        "dependencies": {
+          "Serilog.Sinks.File": "3.2.0",
+          "System.IO": "4.1.0",
+          "System.IO.FileSystem.Primitives": "4.0.1",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.Encoding.Extensions": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {}
+        }
+      },
       "SimpleBase/1.3.1": {
         "type": "package",
         "compile": {
@@ -3680,18 +3777,6 @@
           "lib/netstandard1.3/System.Collections.Specialized.dll": {}
         }
       },
-      "System.ComponentModel/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.0/System.ComponentModel.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/System.ComponentModel.dll": {}
-        }
-      },
       "System.ComponentModel.Annotations/4.4.0": {
         "type": "package",
         "compile": {
@@ -3699,46 +3784,6 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
-        }
-      },
-      "System.ComponentModel.Primitives/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ComponentModel": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.0/System.ComponentModel.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/System.ComponentModel.Primitives.dll": {}
-        }
-      },
-      "System.ComponentModel.TypeConverter/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Collections.NonGeneric": "4.3.0",
-          "System.Collections.Specialized": "4.3.0",
-          "System.ComponentModel": "4.3.0",
-          "System.ComponentModel.Primitives": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Threading": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
         }
       },
       "System.Composition/1.0.31": {
@@ -4061,7 +4106,7 @@
           "System.Runtime.InteropServices": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Globalization.Extensions.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Globalization.Extensions.dll": {
@@ -4736,22 +4781,6 @@
           "lib/netstandard1.3/System.Runtime.Numerics.dll": {}
         }
       },
-      "System.Runtime.Serialization.Formatters/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Runtime.Serialization.Formatters.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll": {}
-        }
-      },
       "System.Runtime.Serialization.Json/4.0.2": {
         "type": "package",
         "dependencies": {
@@ -4766,11 +4795,11 @@
           "lib/netstandard1.3/System.Runtime.Serialization.Json.dll": {}
         }
       },
-      "System.Runtime.Serialization.Primitives/4.3.0": {
+      "System.Runtime.Serialization.Primitives/4.1.1": {
         "type": "package",
         "dependencies": {
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0"
         },
         "compile": {
           "ref/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
@@ -4899,7 +4928,7 @@
           "System.Threading": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Security.Cryptography.Csp.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Security.Cryptography.Csp.dll": {
@@ -5367,7 +5396,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Xml.XmlDocument.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
@@ -6985,16 +7014,16 @@
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
-    "Microsoft.DotNet.PlatformAbstractions/2.0.3": {
-      "sha512": "cXgVdJmW3fLwmSxsv0RlTe4BIKs6slVXV5xRvsO4CV4aUeY67GelaujxY/lP5yVlaMjMM22pXKbKtUY9x050Mw==",
+    "Microsoft.DotNet.PlatformAbstractions/2.0.4": {
+      "sha512": "2HjSGp63VCLQaeGadrLYR868g25mJHr+TFF81yWCaClzjUbU2vNDx6km7SUgPnoLVksE/1e7in88eh+oPtc4aQ==",
       "type": "package",
-      "path": "microsoft.dotnet.platformabstractions/2.0.3",
+      "path": "microsoft.dotnet.platformabstractions/2.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net45/Microsoft.DotNet.PlatformAbstractions.dll",
         "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll",
-        "microsoft.dotnet.platformabstractions.2.0.3.nupkg.sha512",
+        "microsoft.dotnet.platformabstractions.2.0.4.nupkg.sha512",
         "microsoft.dotnet.platformabstractions.nuspec"
       ]
     },
@@ -7309,17 +7338,17 @@
         "microsoft.extensions.dependencyinjection.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.DependencyModel/2.0.3": {
-      "sha512": "OiNYN/QeZLuYcn4CvYrOmYgODPB1Jpqft+cT4F3Hkq5poj+1DLfbIBftMI/Pn8J7DyHhYeBMLxJUuugjvk/Fuw==",
+    "Microsoft.Extensions.DependencyModel/2.0.4": {
+      "sha512": "jnHAeijsfJFQXdXmnYK/NhQIkgBUeth//RZZkf0ldIKC+jARbf7YxbA9uTrs/EPhuQxHXaDxVuMyscgmL+UqfA==",
       "type": "package",
-      "path": "microsoft.extensions.dependencymodel/2.0.3",
+      "path": "microsoft.extensions.dependencymodel/2.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net451/Microsoft.Extensions.DependencyModel.dll",
         "lib/netstandard1.3/Microsoft.Extensions.DependencyModel.dll",
         "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll",
-        "microsoft.extensions.dependencymodel.2.0.3.nupkg.sha512",
+        "microsoft.extensions.dependencymodel.2.0.4.nupkg.sha512",
         "microsoft.extensions.dependencymodel.nuspec"
       ]
     },
@@ -8538,108 +8567,118 @@
         "version.txt"
       ]
     },
-    "NBitcoin/4.0.0.38": {
-      "sha512": "2Ot+7ELVSrRNlX/aPAWQyiq0+7Tn+zDil3wQS44FmyAZVa4kJz4Qox2vbeQeuQdFvw03Gt7uG0dzhGQ3mVjXOQ==",
+    "NBitcoin/4.1.1.10": {
+      "sha512": "Yx7dsgtRr/p0Z/zy3IUjp0WtJiXM9BV+Oeh+36Qqjo+lU/WH1GSgtC4Ung4QHqniXg9yYGEz5OOdv9cbVTimfw==",
       "type": "package",
-      "path": "nbitcoin/4.0.0.38",
+      "path": "nbitcoin/4.1.1.10",
       "files": [
         "lib/net452/NBitcoin.dll",
         "lib/net452/NBitcoin.xml",
         "lib/net461/NBitcoin.dll",
         "lib/net461/NBitcoin.xml",
+        "lib/netcoreapp2.1/NBitcoin.dll",
+        "lib/netcoreapp2.1/NBitcoin.xml",
         "lib/netstandard1.1/NBitcoin.dll",
         "lib/netstandard1.1/NBitcoin.xml",
         "lib/netstandard1.3/NBitcoin.dll",
         "lib/netstandard1.3/NBitcoin.xml",
-        "nbitcoin.4.0.0.38.nupkg.sha512",
+        "lib/netstandard2.0/NBitcoin.dll",
+        "lib/netstandard2.0/NBitcoin.xml",
+        "nbitcoin.4.1.1.10.nupkg.sha512",
         "nbitcoin.nuspec"
       ]
     },
-    "Nethereum.ABI/2.4.0": {
-      "sha512": "WwCi0czv966/ALvb+cNfyATdc4iRjG3OKUtpq+mwQS4OJv5voj33+JbBtJt552oOShk3UxjcYTHlDLkTL63FMw==",
+    "Nethereum.ABI/2.5.1": {
+      "sha512": "vpYQpUqRZ6JWjDkk6DhzCRu7dyLS0BhJThJRC5PiIQzXJe7AveFm/TBqcpeKJstBpW519IdsrR8+A4LzO7vu4g==",
       "type": "package",
-      "path": "nethereum.abi/2.4.0",
+      "path": "nethereum.abi/2.5.1",
       "files": [
         "lib/net451/Nethereum.ABI.dll",
+        "lib/netcoreapp2.1/Nethereum.ABI.dll",
         "lib/netstandard1.1/Nethereum.ABI.dll",
-        "nethereum.abi.2.4.0.nupkg.sha512",
+        "nethereum.abi.2.5.1.nupkg.sha512",
         "nethereum.abi.nuspec"
       ]
     },
-    "Nethereum.Accounts/2.4.0": {
-      "sha512": "cT7rhdUuH3+ggIF2qIKPjtgU0GX/bS3FoHEwhK8C1mvfbHieuW3w7WRsu6n3iqydbIxHiMmJPdI/pv4Zgoo5lw==",
+    "Nethereum.Accounts/2.5.1": {
+      "sha512": "+ISz0eFzeIhAAm1vOXkSnY7st1SbEiw0QW+A5aoaYUJvJHry6qRc+byuLz2v0LdVY9m5vyWR5RNOQD8yZAcHlw==",
       "type": "package",
-      "path": "nethereum.accounts/2.4.0",
+      "path": "nethereum.accounts/2.5.1",
       "files": [
         "lib/net451/Nethereum.Accounts.dll",
         "lib/netstandard1.1/Nethereum.Accounts.dll",
-        "nethereum.accounts.2.4.0.nupkg.sha512",
+        "nethereum.accounts.2.5.1.nupkg.sha512",
         "nethereum.accounts.nuspec"
       ]
     },
-    "Nethereum.Contracts/2.4.0": {
-      "sha512": "HjsfbTQgNpnQnmdJn190/815zV/YyZyzOLI0LLwqJuVNI0bWL/pDXhPMM3flH58r0ncjDRwVezs6rUKtGvsPdQ==",
+    "Nethereum.Contracts/2.5.1": {
+      "sha512": "jnTMIgK0VImzFV4Hw0wq5O5HNKMUAarHaKva0haBlwLGAk+57NcqPZCi+iO/5N5OhBPGkokLglx8IUfgJwLEPQ==",
       "type": "package",
-      "path": "nethereum.contracts/2.4.0",
+      "path": "nethereum.contracts/2.5.1",
       "files": [
         "lib/net451/Nethereum.Contracts.dll",
+        "lib/netcoreapp2.1/Nethereum.Contracts.dll",
         "lib/netstandard1.1/Nethereum.Contracts.dll",
-        "nethereum.contracts.2.4.0.nupkg.sha512",
+        "nethereum.contracts.2.5.1.nupkg.sha512",
         "nethereum.contracts.nuspec"
       ]
     },
-    "Nethereum.HdWallet/2.4.0": {
-      "sha512": "CyOU9yua5iaN0bbDERXIkDgUcMhkJQDkr73FE3EZ8ALt6Am8XwtpOZB2eI6s2tvkHCd+i78pUfX4x1rFfWvCsA==",
+    "Nethereum.HdWallet/2.5.1": {
+      "sha512": "pK4Cv4P7lMmliVAVvGEhfbCxoiErX5PqvCrZ3QkIcr5yNNa/Ickf+MQwqJif4EOCvlBBPejfX/9OQ/z4LOsqXQ==",
       "type": "package",
-      "path": "nethereum.hdwallet/2.4.0",
+      "path": "nethereum.hdwallet/2.5.1",
       "files": [
         "lib/net452/Nethereum.HdWallet.dll",
+        "lib/netcoreapp2.1/Nethereum.HdWallet.dll",
         "lib/netstandard1.1/Nethereum.HdWallet.dll",
-        "nethereum.hdwallet.2.4.0.nupkg.sha512",
+        "nethereum.hdwallet.2.5.1.nupkg.sha512",
         "nethereum.hdwallet.nuspec"
       ]
     },
-    "Nethereum.Hex/2.4.0": {
-      "sha512": "Fo6PmzhYRMHCamf8djzD9ISnYTALhKRoxlOW14dQg6JipX/kGDDvNbQLoUW/C911n9EX4BPm0v+VGZYnGEeEUQ==",
+    "Nethereum.Hex/2.5.1": {
+      "sha512": "WjuE8tAi8BFhxF8rOH7UyB1vElE0UV9jOdojonqMqTlEHxQaPmnOV4Chndz/egddOsnboN1T5xotuaiBBPrwLQ==",
       "type": "package",
-      "path": "nethereum.hex/2.4.0",
+      "path": "nethereum.hex/2.5.1",
       "files": [
         "lib/net451/Nethereum.Hex.dll",
+        "lib/netcoreapp2.1/Nethereum.Hex.dll",
         "lib/netstandard1.1/Nethereum.Hex.dll",
-        "nethereum.hex.2.4.0.nupkg.sha512",
+        "nethereum.hex.2.5.1.nupkg.sha512",
         "nethereum.hex.nuspec"
       ]
     },
-    "Nethereum.JsonRpc.Client/2.4.0": {
-      "sha512": "lgR/R5LtK4cylx+Jk5gCwKafj30AhqSbwvEh5RUfmLz9Uc5DMN1Sz9SImNM93xnqpr4DVxeJ0j5ku/fGOxRCbA==",
+    "Nethereum.JsonRpc.Client/2.5.1": {
+      "sha512": "vJbLJegAfMiJIzTXE39BtbRxAcsEti+wS4My3GOZ1+/9KKb+c13L2Sg8soHGFwNCVoM25LzhGsNt1AODxxR/6w==",
       "type": "package",
-      "path": "nethereum.jsonrpc.client/2.4.0",
+      "path": "nethereum.jsonrpc.client/2.5.1",
       "files": [
         "lib/net451/Nethereum.JsonRpc.Client.dll",
+        "lib/netcoreapp2.1/Nethereum.JsonRpc.Client.dll",
         "lib/netstandard1.1/Nethereum.JsonRpc.Client.dll",
-        "nethereum.jsonrpc.client.2.4.0.nupkg.sha512",
+        "nethereum.jsonrpc.client.2.5.1.nupkg.sha512",
         "nethereum.jsonrpc.client.nuspec"
       ]
     },
-    "Nethereum.JsonRpc.RpcClient/2.4.0": {
-      "sha512": "o9MDi49r8paoDMEblUwBfGSO6g8PuSNmqZmLOAwJ0UMsbL+SI5cFRbDkM4LwoUcs3Z4y9b9sDlemovjJWoEYPQ==",
+    "Nethereum.JsonRpc.RpcClient/2.5.1": {
+      "sha512": "IWjw9iMOawM045RjRIXHyrPgX61R+rLqASpdFHYEMmjBqR3tr++WDpmt5nqchJL6gYe58wfO5AVTcdD7Y5g1+Q==",
       "type": "package",
-      "path": "nethereum.jsonrpc.rpcclient/2.4.0",
+      "path": "nethereum.jsonrpc.rpcclient/2.5.1",
       "files": [
         "lib/net451/Nethereum.JsonRpc.RpcClient.dll",
         "lib/netstandard1.1/Nethereum.JsonRpc.RpcClient.dll",
-        "nethereum.jsonrpc.rpcclient.2.4.0.nupkg.sha512",
+        "nethereum.jsonrpc.rpcclient.2.5.1.nupkg.sha512",
         "nethereum.jsonrpc.rpcclient.nuspec"
       ]
     },
-    "Nethereum.KeyStore/2.4.0": {
-      "sha512": "3nin7chmbkyA/HefakOxebQKrxonp0LLCBmRXM7zj/psdprpDumlFAEibs8H8gHSx7q0VET7XWx96JdpjMddYA==",
+    "Nethereum.KeyStore/2.5.1": {
+      "sha512": "NTBLprPeEulcUrzGBNw8Tef50VUJ8TfaRleoIgKR3yewHMXgubHG7I6Hm2FCXkMUeJA4GabfpWFPkxFFo+2cHw==",
       "type": "package",
-      "path": "nethereum.keystore/2.4.0",
+      "path": "nethereum.keystore/2.5.1",
       "files": [
         "lib/net451/Nethereum.KeyStore.dll",
+        "lib/netcoreapp2.1/Nethereum.KeyStore.dll",
         "lib/netstandard1.1/Nethereum.KeyStore.dll",
-        "nethereum.keystore.2.4.0.nupkg.sha512",
+        "nethereum.keystore.2.5.1.nupkg.sha512",
         "nethereum.keystore.nuspec"
       ]
     },
@@ -8654,58 +8693,63 @@
         "nethereum.parity.nuspec"
       ]
     },
-    "Nethereum.RLP/2.4.0": {
-      "sha512": "fDPgxYGFqkwAl0RjiB3xCD2nrnwZeli7WXicJX8zWKEE2Dq+Qk0YrDvYodNSv0RS0GAwIKr1pllhNep9HMpeQQ==",
+    "Nethereum.RLP/2.5.1": {
+      "sha512": "gLAIgsATuqpU8vgaVYCEFEIswLalJD5dok6R8aKz0NNwq9BQs+EQcYhj3wStLgkeQ8jXzywLFsQXNzjGPtpvHA==",
       "type": "package",
-      "path": "nethereum.rlp/2.4.0",
+      "path": "nethereum.rlp/2.5.1",
       "files": [
         "lib/net451/Nethereum.RLP.dll",
+        "lib/netcoreapp2.1/Nethereum.RLP.dll",
         "lib/netstandard1.1/Nethereum.RLP.dll",
-        "nethereum.rlp.2.4.0.nupkg.sha512",
+        "nethereum.rlp.2.5.1.nupkg.sha512",
         "nethereum.rlp.nuspec"
       ]
     },
-    "Nethereum.RPC/2.4.0": {
-      "sha512": "zIBw+yVNai8cZDm6XVi0kZ1lJg4xjrGSsnrv1TRWQRXZWN6iOB685DwCZsLPIQzgoJ8M/P40dPc1V9I+CPrS2w==",
+    "Nethereum.RPC/2.5.1": {
+      "sha512": "AVwv5wHu8FKoWYZE/kAub2JeBFiBzMPtk5RiO12yJ1dJ6ZrzgETmDQuM2jQcF/c3avO+jozN9AFdmoBF3VrPbA==",
       "type": "package",
-      "path": "nethereum.rpc/2.4.0",
+      "path": "nethereum.rpc/2.5.1",
       "files": [
         "lib/net451/Nethereum.RPC.dll",
+        "lib/netcoreapp2.1/Nethereum.RPC.dll",
         "lib/netstandard1.1/Nethereum.RPC.dll",
-        "nethereum.rpc.2.4.0.nupkg.sha512",
+        "nethereum.rpc.2.5.1.nupkg.sha512",
         "nethereum.rpc.nuspec"
       ]
     },
-    "Nethereum.Signer/2.4.0": {
-      "sha512": "oIPM4bqWeeUjlVmOZ2vXsbeubkyJVWH4+4541PdxEnBjAgHbkVbn+eWFORjwya64VjZn+3/s92PJIqNuWI1Hgw==",
+    "Nethereum.Signer/2.5.1": {
+      "sha512": "5+ItL2rFKGW47DvT2EGUjXcI5dIPw7PargagGJw1GfdGNq2njFgjuY7cvqPlViQjJ9vNvEkhYg7t7vzK3jnEww==",
       "type": "package",
-      "path": "nethereum.signer/2.4.0",
+      "path": "nethereum.signer/2.5.1",
       "files": [
         "lib/net451/Nethereum.Signer.dll",
+        "lib/netcoreapp2.1/Nethereum.Signer.dll",
         "lib/netstandard1.1/Nethereum.Signer.dll",
-        "nethereum.signer.2.4.0.nupkg.sha512",
+        "nethereum.signer.2.5.1.nupkg.sha512",
         "nethereum.signer.nuspec"
       ]
     },
-    "Nethereum.Util/2.4.0": {
-      "sha512": "NGkh/rbqXAoHAWfvp1HLwIoKkIqXVsuhbgWsEKTqYGqKT6itIZbTXtKmvJkfFCTNxZBffWhF2AYxq1nL6odJWA==",
+    "Nethereum.Util/2.5.1": {
+      "sha512": "CzV4g9ENFSDLAj1fGhmU63QGR+xBcAbnhZ0/QgVvEpFBOT2OaiRdJd2jzu5m9+/2sLkQNa1B+Zy1rk0smuZwWQ==",
       "type": "package",
-      "path": "nethereum.util/2.4.0",
+      "path": "nethereum.util/2.5.1",
       "files": [
         "lib/net451/Nethereum.Util.dll",
+        "lib/netcoreapp2.1/Nethereum.Util.dll",
         "lib/netstandard1.1/Nethereum.Util.dll",
-        "nethereum.util.2.4.0.nupkg.sha512",
+        "nethereum.util.2.5.1.nupkg.sha512",
         "nethereum.util.nuspec"
       ]
     },
-    "Nethereum.Web3/2.4.0": {
-      "sha512": "/YqA9APdaR47MAJKjaIWR/jmoF9grkpoa5vWv0RaihrAyFUnYcIXBIbocpvqUCgPoGcZS9YnxV0AD5Iy+OavEw==",
+    "Nethereum.Web3/2.5.1": {
+      "sha512": "1sHdXzhmPliBIo0fP01NPPqu2+MW2lKGgPwwNesOS28vZs+0mxXzfdbt44/zVj1OS/0+DfLI4cY7uB+DuZ97GA==",
       "type": "package",
-      "path": "nethereum.web3/2.4.0",
+      "path": "nethereum.web3/2.5.1",
       "files": [
         "lib/net451/Nethereum.Web3.dll",
+        "lib/netcoreapp2.1/Nethereum.Web3.dll",
         "lib/netstandard1.1/Nethereum.Web3.dll",
-        "nethereum.web3.2.4.0.nupkg.sha512",
+        "nethereum.web3.2.5.1.nupkg.sha512",
         "nethereum.web3.nuspec"
       ]
     },
@@ -8837,10 +8881,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/10.0.3": {
-      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
-      "path": "newtonsoft.json/10.0.3",
+      "path": "newtonsoft.json/11.0.2",
       "files": [
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
@@ -8855,13 +8899,14 @@
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.10.0.3.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "tools/install.ps1"
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "Newtonsoft.Json.Bson/1.0.1": {
@@ -9187,6 +9232,107 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Serilog/2.6.0": {
+      "sha512": "hxHgHkza8ZowrvQ+jTEF2ypDWGP8NbNtxPQIx7ogTAM9fisDFo2+6kOaxCkleZLO8hiyq0kW5tDLkgm/dbj9uA==",
+      "type": "package",
+      "path": "serilog/2.6.0",
+      "files": [
+        "lib/net45/Serilog.dll",
+        "lib/net45/Serilog.xml",
+        "lib/net46/Serilog.dll",
+        "lib/net46/Serilog.xml",
+        "lib/netstandard1.0/Serilog.dll",
+        "lib/netstandard1.0/Serilog.xml",
+        "lib/netstandard1.3/Serilog.dll",
+        "lib/netstandard1.3/Serilog.xml",
+        "serilog.2.6.0.nupkg.sha512",
+        "serilog.nuspec"
+      ]
+    },
+    "Serilog.AspNetCore/2.1.2-dev-00024": {
+      "sha512": "sevoNhTM2UEaGKiBid/HAmMe/8wpeZguko1dpj3/pFdZqy+L9q5lhV+AN4NCMWGVnSBMvOATF5FCUU51XmVpFQ==",
+      "type": "package",
+      "path": "serilog.aspnetcore/2.1.2-dev-00024",
+      "files": [
+        "lib/netstandard2.0/Serilog.AspNetCore.dll",
+        "lib/netstandard2.0/Serilog.AspNetCore.xml",
+        "serilog.aspnetcore.2.1.2-dev-00024.nupkg.sha512",
+        "serilog.aspnetcore.nuspec"
+      ]
+    },
+    "Serilog.Extensions.Logging/2.0.0": {
+      "sha512": "JAh1vHmbiwDAjA9VmUQjAXvlGm+vDv8usarajlkx7Arm6Zai+CPY4naE4N9M3Eh520wY5GmIWpM+7zmfMbdTOw==",
+      "type": "package",
+      "path": "serilog.extensions.logging/2.0.0",
+      "files": [
+        "lib/net45/Serilog.Extensions.Logging.dll",
+        "lib/net45/Serilog.Extensions.Logging.xml",
+        "lib/net46/Serilog.Extensions.Logging.dll",
+        "lib/net46/Serilog.Extensions.Logging.xml",
+        "lib/net461/Serilog.Extensions.Logging.dll",
+        "lib/net461/Serilog.Extensions.Logging.xml",
+        "lib/netstandard1.3/Serilog.Extensions.Logging.dll",
+        "lib/netstandard1.3/Serilog.Extensions.Logging.xml",
+        "lib/netstandard2.0/Serilog.Extensions.Logging.dll",
+        "lib/netstandard2.0/Serilog.Extensions.Logging.xml",
+        "serilog.extensions.logging.2.0.0.nupkg.sha512",
+        "serilog.extensions.logging.nuspec"
+      ]
+    },
+    "Serilog.Settings.Configuration/3.0.0-dev-00112": {
+      "sha512": "/yocGtGRbV43P+BtVVtj8n/gL7eoE6jZ/7iRdO0GCx4FWs2S97RFgwMXo9V8cN5FBXzjFQP0nsbcRQqvJNfzrA==",
+      "type": "package",
+      "path": "serilog.settings.configuration/3.0.0-dev-00112",
+      "files": [
+        "lib/net451/Serilog.Settings.Configuration.dll",
+        "lib/net451/Serilog.Settings.Configuration.xml",
+        "lib/netstandard2.0/Serilog.Settings.Configuration.dll",
+        "lib/netstandard2.0/Serilog.Settings.Configuration.xml",
+        "serilog.settings.configuration.3.0.0-dev-00112.nupkg.sha512",
+        "serilog.settings.configuration.nuspec"
+      ]
+    },
+    "Serilog.Sinks.Console/3.1.2-dev-00777": {
+      "sha512": "IujCBHiNcIbSWqA7kZ0skRouIDsBI88z+KvSYl3nbqa9cVju4l6sxsumKw6t97XxL1Xku8iTretCZ5YCvNhDIA==",
+      "type": "package",
+      "path": "serilog.sinks.console/3.1.2-dev-00777",
+      "files": [
+        "lib/net45/Serilog.Sinks.Console.dll",
+        "lib/net45/Serilog.Sinks.Console.xml",
+        "lib/netcoreapp1.1/Serilog.Sinks.Console.dll",
+        "lib/netcoreapp1.1/Serilog.Sinks.Console.xml",
+        "lib/netstandard1.3/Serilog.Sinks.Console.dll",
+        "lib/netstandard1.3/Serilog.Sinks.Console.xml",
+        "serilog.sinks.console.3.1.2-dev-00777.nupkg.sha512",
+        "serilog.sinks.console.nuspec"
+      ]
+    },
+    "Serilog.Sinks.File/3.2.0": {
+      "sha512": "VHbo68pMg5hwSWrzLEdZv5b/rYmIgHIRhd4d5rl8GnC5/a8Fr+RShT5kWyeJOXax1el6mNJ+dmHDOVgnNUQxaw==",
+      "type": "package",
+      "path": "serilog.sinks.file/3.2.0",
+      "files": [
+        "lib/net45/Serilog.Sinks.File.dll",
+        "lib/net45/Serilog.Sinks.File.xml",
+        "lib/netstandard1.3/Serilog.Sinks.File.dll",
+        "lib/netstandard1.3/Serilog.Sinks.File.xml",
+        "serilog.sinks.file.3.2.0.nupkg.sha512",
+        "serilog.sinks.file.nuspec"
+      ]
+    },
+    "Serilog.Sinks.RollingFile/3.3.1-dev-00771": {
+      "sha512": "ZqT4qp+BIEOYloDodia3at6I733dONgust+zjhQWES/NBbM1Jqa/PELLiYexROt6MMquMBdwbO2k4yZl59Td7g==",
+      "type": "package",
+      "path": "serilog.sinks.rollingfile/3.3.1-dev-00771",
+      "files": [
+        "lib/net45/Serilog.Sinks.RollingFile.dll",
+        "lib/net45/Serilog.Sinks.RollingFile.xml",
+        "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll",
+        "lib/netstandard1.3/Serilog.Sinks.RollingFile.xml",
+        "serilog.sinks.rollingfile.3.3.1-dev-00771.nupkg.sha512",
+        "serilog.sinks.rollingfile.nuspec"
       ]
     },
     "SimpleBase/1.3.1": {
@@ -9643,63 +9789,6 @@
         "system.collections.specialized.nuspec"
       ]
     },
-    "System.ComponentModel/4.3.0": {
-      "sha512": "VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
-      "type": "package",
-      "path": "system.componentmodel/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/netcore50/System.ComponentModel.dll",
-        "lib/netstandard1.3/System.ComponentModel.dll",
-        "lib/portable-net45+win8+wp8+wpa81/_._",
-        "lib/win8/_._",
-        "lib/wp80/_._",
-        "lib/wpa81/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/netcore50/System.ComponentModel.dll",
-        "ref/netcore50/System.ComponentModel.xml",
-        "ref/netcore50/de/System.ComponentModel.xml",
-        "ref/netcore50/es/System.ComponentModel.xml",
-        "ref/netcore50/fr/System.ComponentModel.xml",
-        "ref/netcore50/it/System.ComponentModel.xml",
-        "ref/netcore50/ja/System.ComponentModel.xml",
-        "ref/netcore50/ko/System.ComponentModel.xml",
-        "ref/netcore50/ru/System.ComponentModel.xml",
-        "ref/netcore50/zh-hans/System.ComponentModel.xml",
-        "ref/netcore50/zh-hant/System.ComponentModel.xml",
-        "ref/netstandard1.0/System.ComponentModel.dll",
-        "ref/netstandard1.0/System.ComponentModel.xml",
-        "ref/netstandard1.0/de/System.ComponentModel.xml",
-        "ref/netstandard1.0/es/System.ComponentModel.xml",
-        "ref/netstandard1.0/fr/System.ComponentModel.xml",
-        "ref/netstandard1.0/it/System.ComponentModel.xml",
-        "ref/netstandard1.0/ja/System.ComponentModel.xml",
-        "ref/netstandard1.0/ko/System.ComponentModel.xml",
-        "ref/netstandard1.0/ru/System.ComponentModel.xml",
-        "ref/netstandard1.0/zh-hans/System.ComponentModel.xml",
-        "ref/netstandard1.0/zh-hant/System.ComponentModel.xml",
-        "ref/portable-net45+win8+wp8+wpa81/_._",
-        "ref/win8/_._",
-        "ref/wp80/_._",
-        "ref/wpa81/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.componentmodel.4.3.0.nupkg.sha512",
-        "system.componentmodel.nuspec"
-      ]
-    },
     "System.ComponentModel.Annotations/4.4.0": {
       "sha512": "29K3DQ+IGU7LBaMjTo7SI7T7X/tsMtLvz1p56LJ556Iu0Dw3pKZw5g8yCYCWMRxrOF0Hr0FU0FwW0o42y2sb3A==",
       "type": "package",
@@ -9783,94 +9872,6 @@
         "system.componentmodel.annotations.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "System.ComponentModel.Primitives/4.3.0": {
-      "sha512": "j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
-      "type": "package",
-      "path": "system.componentmodel.primitives/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/System.ComponentModel.Primitives.dll",
-        "lib/netstandard1.0/System.ComponentModel.Primitives.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/System.ComponentModel.Primitives.dll",
-        "ref/netstandard1.0/System.ComponentModel.Primitives.dll",
-        "ref/netstandard1.0/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/de/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/es/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/fr/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/it/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/ja/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/ko/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/ru/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/zh-hans/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/zh-hant/System.ComponentModel.Primitives.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.componentmodel.primitives.4.3.0.nupkg.sha512",
-        "system.componentmodel.primitives.nuspec"
-      ]
-    },
-    "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
-      "type": "package",
-      "path": "system.componentmodel.typeconverter/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/System.ComponentModel.TypeConverter.dll",
-        "lib/net462/System.ComponentModel.TypeConverter.dll",
-        "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll",
-        "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/System.ComponentModel.TypeConverter.dll",
-        "ref/net462/System.ComponentModel.TypeConverter.dll",
-        "ref/netstandard1.0/System.ComponentModel.TypeConverter.dll",
-        "ref/netstandard1.0/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/de/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/es/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/fr/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/it/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/ja/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/ko/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/ru/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/zh-hans/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/zh-hant/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/System.ComponentModel.TypeConverter.dll",
-        "ref/netstandard1.5/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/de/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/es/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/fr/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/it/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/ja/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/ko/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/ru/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/zh-hans/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/zh-hant/System.ComponentModel.TypeConverter.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
-        "system.componentmodel.typeconverter.nuspec"
       ]
     },
     "System.Composition/1.0.31": {
@@ -12527,33 +12528,6 @@
         "system.runtime.numerics.nuspec"
       ]
     },
-    "System.Runtime.Serialization.Formatters/4.3.0": {
-      "sha512": "KT591AkTNFOTbhZlaeMVvfax3RqhH1EJlcwF50Wm7sfnBLuHiOeZRRKrr1ns3NESkM20KPZ5Ol/ueMq5vg4QoQ==",
-      "type": "package",
-      "path": "system.runtime.serialization.formatters/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Runtime.Serialization.Formatters.dll",
-        "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Runtime.Serialization.Formatters.dll",
-        "ref/netstandard1.3/System.Runtime.Serialization.Formatters.dll",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.runtime.serialization.formatters.4.3.0.nupkg.sha512",
-        "system.runtime.serialization.formatters.nuspec"
-      ]
-    },
     "System.Runtime.Serialization.Json/4.0.2": {
       "sha512": "+7DIJhnKYgCzUgcLbVTtRQb2l1M0FP549XFlFkQM5lmNiUBl44AfNbx4bz61xA8PzLtlYwfmif4JJJW7MPPnjg==",
       "type": "package",
@@ -12611,10 +12585,10 @@
         "system.runtime.serialization.json.nuspec"
       ]
     },
-    "System.Runtime.Serialization.Primitives/4.3.0": {
-      "sha512": "Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
+    "System.Runtime.Serialization.Primitives/4.1.1": {
+      "sha512": "HZ6Du5QrTG8MNJbf4e4qMO3JRAkIboGT5Fk804uZtg3Gq516S7hAqTm2UZKUHa7/6HUGdVy3AqMQKbns06G/cg==",
       "type": "package",
-      "path": "system.runtime.serialization.primitives/4.3.0",
+      "path": "system.runtime.serialization.primitives/4.1.1",
       "files": [
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
@@ -12678,7 +12652,7 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
         "runtimes/aot/lib/netcore50/System.Runtime.Serialization.Primitives.dll",
-        "system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
+        "system.runtime.serialization.primitives.4.1.1.nupkg.sha512",
         "system.runtime.serialization.primitives.nuspec"
       ]
     },
@@ -14242,8 +14216,12 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.4",
       "Microsoft.jQuery.Unobtrusive.Ajax >= 3.2.5",
       "Microsoft.jQuery.Unobtrusive.Validation >= 3.2.10",
-      "Nethereum.HdWallet >= 2.4.0",
+      "Nethereum.HdWallet >= 2.5.1",
       "Nethereum.Parity >= 2.4.0",
+      "Serilog.AspNetCore >= 2.1.2-dev-00024",
+      "Serilog.Settings.Configuration >= 3.0.0-dev-00112",
+      "Serilog.Sinks.Console >= 3.1.2-dev-00777",
+      "Serilog.Sinks.RollingFile >= 3.3.1-dev-00771",
       "System.Configuration.ConfigurationManager >= 4.5.0-rc1",
       "System.Net.Http >= 4.3.3",
       "bootbox >= 4.1.0"
@@ -14259,11 +14237,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Monty\\source\\repos\\EscrowCore\\EscrowCore\\EscrowCore.csproj",
+      "projectUniqueName": "C:\\Users\\Monty\\source\\repos\\Escrow\\EscrowNetCore\\EscrowCore\\EscrowCore.csproj",
       "projectName": "EscrowCore",
-      "projectPath": "C:\\Users\\Monty\\source\\repos\\EscrowCore\\EscrowCore\\EscrowCore.csproj",
+      "projectPath": "C:\\Users\\Monty\\source\\repos\\Escrow\\EscrowNetCore\\EscrowCore\\EscrowCore.csproj",
       "packagesPath": "C:\\Users\\Monty\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Monty\\source\\repos\\EscrowCore\\EscrowCore\\obj\\",
+      "outputPath": "C:\\Users\\Monty\\source\\repos\\Escrow\\EscrowNetCore\\EscrowCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -14307,9 +14285,17 @@
             "target": "Package",
             "version": "2.0.4"
           },
+          "Serilog.Sinks.RollingFile": {
+            "target": "Package",
+            "version": "3.3.1-dev-00771"
+          },
           "Nethereum.HdWallet": {
             "target": "Package",
-            "version": "2.4.0"
+            "version": "2.5.1"
+          },
+          "Serilog.AspNetCore": {
+            "target": "Package",
+            "version": "2.1.2-dev-00024"
           },
           "Microsoft.jQuery.Unobtrusive.Validation": {
             "target": "Package",
@@ -14327,6 +14313,10 @@
             "target": "Package",
             "version": "2.0",
             "autoReferenced": true
+          },
+          "Serilog.Settings.Configuration": {
+            "target": "Package",
+            "version": "3.0.0-dev-00112"
           },
           "Nethereum.Parity": {
             "target": "Package",
@@ -14347,6 +14337,10 @@
           "bootbox": {
             "target": "Package",
             "version": "4.1.0"
+          },
+          "Serilog.Sinks.Console": {
+            "target": "Package",
+            "version": "3.1.2-dev-00777"
           }
         },
         "imports": [

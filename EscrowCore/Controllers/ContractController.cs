@@ -9,7 +9,7 @@ using EscrowCore.Data;
 using EscrowCore.Models;
 using EscrowCore.Utils;
 using EscrowCore.Models.VM;
-
+using Serilog;
 namespace EscrowCore.Controllers
 {
     public class ContractController : Controller
@@ -22,13 +22,14 @@ namespace EscrowCore.Controllers
         public async Task<IActionResult> DeployContract(DeployContractVM contractVM)
         {
            
-            ContractParam contractParam = new ContractParam(contractVM);
-            ContractAccess contractAccess = new ContractAccess((int)contractVM.Network);
+            
 
             try
             {
+                ContractParam contractParam = new ContractParam(contractVM);
+                ContractAccess contractAccess = new ContractAccess((int)contractVM.Network);
                 var transactionHash = await contractAccess.DeployContract(contractParam);
-               // contractVM.Message = transactionHash.ToString();
+               
              
                Escrow newContract = new Escrow(transactionHash.ToString(), contractVM);
               
@@ -40,6 +41,7 @@ namespace EscrowCore.Controllers
                     await _context.SaveChangesAsync();
                     //contractVM.ContractList = await _context.DeployedContracts.Include(p => p.Receipt).ToListAsync();
                 }
+                Log.Information("Contract Deployed! TxHash: " + transactionHash);
                 return new JsonResult(transactionHash);
             }
             catch (Exception e)

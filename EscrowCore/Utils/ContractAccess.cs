@@ -126,7 +126,7 @@ namespace EscrowCore.Utils
                 default:
                     accountGanache = new Nethereum.Web3.Accounts.Account(privKeySeller1);
 
-                    web3 = new Web3(accountGanache, "http://localhost:7545"); //Account #3 Ganache
+                    web3 = new Web3(accountGanache, "http://localhost:7545"); //Account #1 Ganache
                     break;
 
             }   
@@ -150,7 +150,8 @@ namespace EscrowCore.Utils
         {
             try
             {
-                var receipt = await web3.TransactionManager.TransactionReceiptService.PollForReceiptAsync(transactionHash);
+                //var request = new Nethereum.RPC.Eth.Transactions.EthGetTransactionReceipt(web3);
+                Nethereum.RPC.Eth.DTOs.TransactionReceipt receipt = await web3.Eth.DeployContract.TransactionManager.TransactionReceiptService.PollForReceiptAsync(transactionHash);
 
                 while (receipt == null)
                 {
