@@ -22,6 +22,6 @@ namespace EscrowCore.Models.VM
         [Required]
         public DateTime ExpiryDate { get; set; }
         public string ContractAddress { get; set; }
-        public int Network { get; set; } 
+        public Network Network { get; set; } 
     }
 }

@@ -109,13 +109,14 @@ namespace EscrowCore.Utils
 
         private Nethereum.Web3.Accounts.Managed.ManagedAccount accountRopsten; 
         private Web3 web3;
-       
+        private int Network;
         private static string account = "0x005e44B5ce1E91c2ee3b6e13B52F174b664b8124";
         private static string password = "c4Gpy05647gtWQp056";
 
         public ContractAccess(int network)
         {
-            switch (network)
+            Network = (int)network;
+            switch (Network)
             {
                 case 1:
                     accountRopsten = new Nethereum.Web3.Accounts.Managed.ManagedAccount(account, password);

@@ -36,7 +36,7 @@ namespace EscrowCore.Models
             BuyerAddress = deploy.BuyerAddress;
             EscrowHolderAddress = deploy.EscrowHolderAddress;
             TransactionHash = txHash;
-            Network = deploy.Network;
+            Network = (int)deploy.Network;
         }
     }
     public class Receipt

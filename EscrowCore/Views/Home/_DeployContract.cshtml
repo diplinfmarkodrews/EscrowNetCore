@@ -5,25 +5,29 @@
 
 <h4>Deploy Contract</h4>
 <hr />
-@using (Html.BeginForm("DeployContract", "Contract", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+
 
     <div class="row">
         <div class="col-md-12">
-        
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             
+            @{ 
+//var NetworkTypes = Enum.GetNames(typeof(Network)).ToList();
+//SelectList NetworkList = new SelectList(NetworkTypes, "Value", "Text", "Selected");         
+
+
+
                 <div id="NetworkSelect" class="form-group">
                     <label asp-for="@Model.Network" class="control-label"></label>
-                    <select asp-for="@Model.Network" class="form-control">
-                        <option value="0">Ganache</option>
-                        <option value="1" selected="selected">Ropsten</option>
+                    <select asp-for="@Model.Network" onchange="callNetworkChange()" class="form-control">
+                        <option id="ganache" value="0">Ganache</option>
+                        <option id="ropsten" value="1">Ropsten</option>
 
                     </select>
                                   
-                  
-                    <span asp-validation-for="@Model.Network" class="text-danger"></span>
+                      
+               
                 </div>
+            } 
                 <div class="form-group">
                     <label asp-for="@Model.SellerAddress" class="control-label"></label>
                     <input asp-for="@Model.SellerAddress" class="form-control" />
@@ -53,12 +57,8 @@
                     <label asp-for="@Model.ExpiryDate" class="control-label"></label>
                     <input asp-for="@Model.ExpiryDate" class="form-control" />
                     <span asp-validation-for="@Model.ExpiryDate" class="text-danger"></span>
-                </div>
-            
-                <br/>
-                
-           
-     
+                </div>            
+                <br/>                              
         </div>
     </div>
-}
+

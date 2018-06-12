@@ -23,7 +23,7 @@ namespace EscrowCore.Controllers
         {
            
             ContractParam contractParam = new ContractParam(contractVM);
-            ContractAccess contractAccess = new ContractAccess(contractVM.Network);
+            ContractAccess contractAccess = new ContractAccess((int)contractVM.Network);
 
             try
             {

@@ -9,23 +9,31 @@
 
 <div class="row">
     <div class="col-sm-6">
-        <form id="deploy">
+        <form>
             @Html.AntiForgeryToken()
-            @Html.Partial("~/Views/Home/_DeployContract.cshtml", Model.DeployContractVM)
-            <input type="button" id="btnDeploy" value="Deploy" class="btn btn-primary" />
+            <div id="deploy">
+                @Html.Partial("~/Views/Home/_DeployContract.cshtml", Model.DeployContractVM)
+            </div>
+            <input type="button" id="btnDeploy" value="Deploy" class="btn btn-primary col-sm-3" />
         </form>
-        <br/>
-        <p id="txHash"></p>
+        <br />
+
     </div>
-   
+
     <div id="partialReceipt" class="col-sm-4">
 
         @Html.Partial("~/Views/Home/_Receipt.cshtml", Model.Receipt)
 
     </div>
-   
-</div>
 
+</div>
+<div class="row">
+    <br />
+    <br />
+    <div>
+        <p id="txHash"></p>
+    </div>
+</div>
 <div class="row">
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
@@ -35,7 +43,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     TxHash:
                     <div id="modalText" data->
-                        
+
                     </div>
                 </div>
                 <!-- dialog buttons -->
@@ -45,18 +53,21 @@
     </div>
 </div>
 
-
-@Html.ActionLink("Delete All", "DeleteAlltxs", "Contract", null, new { @class = "btn btn-default" })
 <div class="row">
-  
-        <div id="ListView">
-            @Html.Partial("~/Views/Home/_ListContracts.cshtml", Model.ContractList)
+    <div class="col-sm-6">
+        @Html.ActionLink("Delete All", "DeleteAlltxs", "Contract", null, new { @class = "btn btn-default col-sm-3" })
         </div>
-    
-</div>
-@section scripts{
+    </div>
+        <div class="row">
 
-    <script>
+            <div id="ListView">
+                @Html.Partial("~/Views/Home/_ListContracts.cshtml", Model.ContractList)
+            </div>
+
+        </div>
+        @section scripts{
+
+            <script>
 
         $(function () {
             if ($('@Model.Receipt.ContractAddress' == null))
@@ -64,14 +75,8 @@
                 $('#partialReceipt').hide();
 
             }
-           
-            $('#NetworkSelect').on('change', function () {
-                var net=$('#NetworkSelect').html();
-                console.log("changed"+net);
-
-                
-
-            });
+            
+            $('#Network').on('change', callNetworkChange());
 
             $("#myModal").on("hide", function () {    // remove the event listeners when the dialog is dismissed
                 $("#myModal a.btn").off("click");
@@ -114,35 +119,32 @@
 
             $('#btnDeploy').on('click', function () {
 
+                var dataModel = $('form').serialize();
 
-
-                @*console.log(JSON.stringify(@dataModel));*@
-                var dataModel = @Json.Serialize(Model.DeployContractVM);
-
-
+                   console.log(dataModel);
 
                 $.ajax({
-                    type: "POST",
+                       type: "POST",
                     url: "/Contract/DeployContract/",
                     traditional:true,
                     beforeSend: function (xhr) {
-                        xhr.setRequestHeader("XSRF-TOKEN",
-                            $('input:hidden[name="__RequestVerificationToken"]').val());
-                    },
+                           xhr.setRequestHeader("XSRF-TOKEN",
+                               $('input:hidden[name="__RequestVerificationToken"]').val());
+                       },
                     data:  dataModel
                     ,
                     contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                     dataType: "json",
                     success: function (response) {
-                        console.log(response);
+                           console.log(response);
                         $('#modalText').html(response);
                         $('#txHash').html("txHash: "+response);
                         $('#myModal').modal('show');
-                    },
+                       },
                     failure: function (response) {
-                        alert(response);
-                    }
-                });
+                           alert(response);
+                       }
+                   });
             })
 
             $('#btnPollReceipt').on('click', function () {
@@ -154,38 +156,73 @@
                 var hash = $('#modalText').html();
                 console.log(hash);
 
+                callGetReceiptPartial(hash);
 
 
-                $.ajax({
-                    type: "GET",
-                    url: "/Contract/PollReceipt/" + hash,
-                    traditional:true,
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader("XSRF-TOKEN",
-                            $('input:hidden[name="__RequestVerificationToken"]').val());
-                    },
-
-
-                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-
-                    success: function (response) {
-                        $('#partialReceipt').show();
-                        var receipt = $('#partialReceipt').html(response);
-                        var List = GetList();
-                        console.log(List);
-                    },
-                    failure: function (response) {
-                        alert(response);
-                    }
-                });
             })
 
 
 
-    });//ready
+        });//ready
+                function callGetReceiptPartial(hash) {
+                    var id = hash;
+                    $.ajax({
+                        type: "GET",
+                        url: "/Contract/PollReceipt/" + id,
+                        traditional: true,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
 
-    </script>
-}
+
+                        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+
+                        success: function (response) {
+                            $('#partialReceipt').show();
+                            var receipt = $('#partialReceipt').html(response);
+                            var List = GetList();
+                            console.log(List);
+                        },
+                        failure: function (response) {
+                            alert(response);
+                        }
+                    });
+
+                }
+                function callNetworkChange() {
+                    var id = document.getElementById("Network").value;
+
+                    console.log(id);
+
+
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/Home/ChangeNetwork/" + id,
+                        traditional: true,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+                        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                        success: function (response) {
+                            // console.log(response);
+
+                            $('#deploy').html(response);
+                            // $('#Network').on('input', callNetworkChange());
+
+                        },
+                        failure: function (response) {
+                            alert(response);
+                        }
+
+                    });
+
+
+                }
+            </script>
+        }
 
 
 

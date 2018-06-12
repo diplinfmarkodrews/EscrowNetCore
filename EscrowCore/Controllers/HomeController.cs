@@ -29,7 +29,7 @@ namespace EscrowCore.Controllers
                     contractVM.DeployContractVM.EtherToPay = "0.0001";
                     contractVM.DeployContractVM.ExpiryDate = DateTime.Now.AddDays(30);
                     contractVM.DeployContractVM.GasLimit = "67412";
-                    contractVM.DeployContractVM.Network = 0;
+                    contractVM.DeployContractVM.Network = Network.Ganache;
                     break;
                 case 1:
                     contractVM.DeployContractVM.SellerAddress = "0x005e44B5ce1E91c2ee3b6e13B52F174b664b8124";
@@ -38,7 +38,7 @@ namespace EscrowCore.Controllers
                     contractVM.DeployContractVM.EtherToPay = "0.0001";
                     contractVM.DeployContractVM.ExpiryDate = DateTime.Now.AddDays(30);
                     contractVM.DeployContractVM.GasLimit = "67412";
-                    contractVM.DeployContractVM.Network = 1;
+                    contractVM.DeployContractVM.Network = Network.Ropsten;
                     break;
             }
             
@@ -48,7 +48,40 @@ namespace EscrowCore.Controllers
 
             return View(contractVM);
         }
-    
+
+        public IActionResult ChangeNetwork(int id)
+        {
+
+            DeployContractVM contractVM = new DeployContractVM();
+            
+            switch (id)
+            {
+                case 0:
+                    contractVM.SellerAddress = "0x7AC658F93a3f21187Ef55afd2E47509dc9E63B15";
+                    contractVM.BuyerAddress = "0x87f39fB5D19bB6e673Fec08ee09a97872241de6C";
+                    contractVM.EscrowHolderAddress = "0x987D6639c025354042BB913A503F4532390652ad";
+                    contractVM.EtherToPay = "0.0001";
+                    contractVM.ExpiryDate = DateTime.Now.AddDays(30);
+                    contractVM.GasLimit = "67412";
+                    contractVM.Network = Network.Ganache;
+                    break;
+                case 1:
+                    contractVM.SellerAddress = "0x005e44B5ce1E91c2ee3b6e13B52F174b664b8124";
+                    contractVM.BuyerAddress = "0x002E271cd0b4f04Ca47F12D39d248dDb08D4eDdE";
+                    contractVM.EscrowHolderAddress = "0x004EF9E943EbeecF4d161384666d939b34af9146";
+                    contractVM.EtherToPay = "0.0001";
+                    contractVM.ExpiryDate = DateTime.Now.AddDays(30);
+                    contractVM.GasLimit = "67412";
+                    contractVM.Network = Network.Ropsten;
+                    break;
+            }
+
+
+            
+            
+
+            return PartialView("~/Views/Home/_DeployContract.cshtml", contractVM);
+        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
@@ -85,8 +118,8 @@ namespace EscrowCore.Controllers
 
         //    return View(contractVM);
         //}
-    
-        
+
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

@@ -6,11 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EscrowCore.Data;
 using EscrowCore.Models;
 using EscrowCore.Services;
+using Ipfs.CoreApi;
+using System.Net.Http;
 //using Microsoft.AspNetCore.Http;
 //using React.AspNet;
 
@@ -41,7 +45,7 @@ namespace EscrowCore
             //Adding React services
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddReact();
-
+            
 
             services.AddMvc();
             
@@ -83,7 +87,7 @@ namespace EscrowCore
             //});
 
             app.UseStaticFiles();
-
+            
             app.UseAuthentication();
 
             app.UseMvc(routes =>

@@ -5,10 +5,11 @@
         function getReceipt(txHash) {
 
             //var contract = {};
-            //console.log(txHash);
+            console.log(txHash);
+            var id = txHash;
             $.ajax({
                 type: "Get",
-                url: "/Contract/PollReceipt/" + txHash,
+                url: "/Contract/PollReceipt/" + id,
 
                 success: function (response) {
                
