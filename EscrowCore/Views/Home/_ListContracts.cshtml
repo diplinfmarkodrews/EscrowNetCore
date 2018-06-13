@@ -51,19 +51,20 @@
            
             <tr>
                 <td>
-                    <div id="@item.TransactionHash" onclick="getReceipt(this.id)" class="">
+                    <div id="@item.TransactionHash">
                         <p>@((Network)item.Network)</p>
                     </div>
                 </td>
                 <td>
-                    <div id="@item.TransactionHash" onclick="getReceipt(this.id)" class="">
+                    <div id="@item.TransactionHash" onclick="getReceipt(this.id)" data-toggle="tooltip" data-placement="top" title="Get Receipt" class="linkTo">
                         <p>@item.TransactionHash</p>
                     </div>
                 </td>
                
                 <td>
-                    @if ((Network)item.Network == Network.Ropsten) {
-                        <a href="@Url.Action("https://ropsten.etherscan.io/tx/" + item.TransactionHash)">Etherscan</a>
+                    @if (item.Network == (int)Network.Ropsten)
+                    {
+                        <div><a target="_blank" href="@("https://ropsten.etherscan.io/tx/" + item.TransactionHash)">Etherscan</a> | </div>
                     }
                     @Html.ActionLink("Details", "Details", "Contract", new { id = item.ID }, null) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })

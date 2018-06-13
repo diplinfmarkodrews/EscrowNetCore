@@ -15,7 +15,10 @@
     font-size: 20px;
     line-height: 1.4;
 }
+.linkTo:hover {
+    cursor:pointer!important;
 
+}
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
