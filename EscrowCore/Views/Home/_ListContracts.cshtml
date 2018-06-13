@@ -48,6 +48,7 @@
 
         @foreach (var item in Model.Reverse())
         {
+           
             <tr>
                 <td>
                     <div id="@item.TransactionHash" onclick="getReceipt(this.id)" class="">
@@ -61,7 +62,9 @@
                 </td>
                
                 <td>
-
+                    @if ((Network)item.Network == Network.Ropsten) {
+                        <a href="@Url.Action("https://ropsten.etherscan.io/tx/" + item.TransactionHash)">Etherscan</a>
+                    }
                     @Html.ActionLink("Details", "Details", "Contract", new { id = item.ID }, null) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>

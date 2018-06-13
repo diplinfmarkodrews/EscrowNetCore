@@ -36,19 +36,27 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - Escrow</p>
-        </footer>
+    <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=iGpuQ0ioPrM">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2018 - Escrow</p>
+            </footer>
+        </div>
     </div>
+   
+    
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         @* <script src="~/lib/jquery.unobtrusive-ajax.min.js"></script>*@
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="jarallax/dist/jarallax.min.js"></script>
+        <script src="jarallax/dist/jarallax-video.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        
+
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"

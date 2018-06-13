@@ -1,3 +1,4 @@
+pragma solidity ^0.4.11; //check valid Version
 contract Token {
     function transfer(address _to, uint _value) public returns (bool success);
     function transferFrom(address _from, address _to, uint _value) public returns (bool success);

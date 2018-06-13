@@ -1,36 +1,5 @@
 pragma solidity ^0.4.11;
-contract Status {
-  uint public timestamp;
-  uint public state;
- constructor()
- {
-    state = 0;
-    timestamp = now;
- }
- function funded() public
- {
-   state = 1;
-   timestamp = now;
 
- }
- function refunded() public
- {
-   state = 2;
-   timestamp = now;
-
- }
- function expired() public
- {
-   state = 3;
-   timestamp = now;
-
- }
- function released() public
- {
-   state = 4;
-   timestamp = now;
- }
-}
 contract Escrow {
     uint balance;
     uint balanceEscrow;
@@ -39,7 +8,7 @@ contract Escrow {
     address public escrow;
     uint private start;
     uint public amount;
-    Status escrow_state;
+    uint escrow_state;
     bool buyerOk;
     bool sellerOk;
     constructor(address buyer_address, address escrow_address, uint escrow_value) public {
@@ -49,10 +18,10 @@ contract Escrow {
         escrow = escrow_address;
         amount = escrow_value;
         start = now; //now is an alias for block.timestamp, not really "now"
-        escrow_state = new Status(); //state of escrow 0 created, 1 funded, 2 refunded, 3 expired, 4 released
+        escrow_state = 0; //state of escrow 0 created, 1 funded, 2 refunded, 3 expired, 4 released
 
     }
-    function GetStatus() public returns (Status){
+    function GetStatus() public returns (uint){
       return escrow_state;
 
     }
@@ -76,7 +45,7 @@ contract Escrow {
         // send seller the balance
         if (seller.send(this.balance)) {
             balance = 0;
-            escrow_state.released();
+            escrow_state=4;
         } else {
             throw;
         }
@@ -90,7 +59,7 @@ contract Escrow {
     function deposit() public payable {
         if (msg.sender == buyer) {
             balance += msg.value;
-            escrow_state.funded();
+            escrow_state=1;
         }
     }
 
