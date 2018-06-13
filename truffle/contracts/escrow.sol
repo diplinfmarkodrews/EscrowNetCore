@@ -8,7 +8,7 @@ contract Escrow {
     address public escrow;
     uint private start;
     uint public amount;
-    uint escrow_state;
+    uint8 escrow_state;
     bool buyerOk;
     bool sellerOk;
     constructor(address buyer_address, address escrow_address, uint escrow_value) public {

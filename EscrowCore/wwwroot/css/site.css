@@ -15,6 +15,10 @@
     font-size: 20px;
     line-height: 1.4;
 }
+#myModal {
+    z-index:2000!important;
+
+}
 .linkTo:hover {
     cursor:pointer!important;
 

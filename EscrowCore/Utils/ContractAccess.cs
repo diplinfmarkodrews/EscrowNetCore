@@ -101,6 +101,7 @@ namespace EscrowCore.Utils
 
 
         private const string path = @"..\truffle\build\contracts\Escrow.json";
+        private const string path2 = @"..\truffle\build\contracts\EscrowSpecial.json";
         private ContractModel ContractModel;
       
         private  Nethereum.Web3.Accounts.Account accountGanache;
@@ -136,7 +137,8 @@ namespace EscrowCore.Utils
         }
         public async Task<string> DeployContract(ContractParam param)
         {
-            
+            //ulong duration = 120;
+            //var result = await web3.Personal.UnlockAccount.SendRequestAsync(account, password, duration);
             var transActionHash = await web3.Eth.DeployContract.SendRequestAsync(ContractModel.ABI, ContractModel.ByteCode, param.SenderAddress, param.GasLimit, param.GetV);
             return transActionHash;
 

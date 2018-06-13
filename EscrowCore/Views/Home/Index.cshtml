@@ -34,24 +34,24 @@
 
 </div>
 
-<div class="row">
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- dialog body -->
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    TxHash:
-                    <div id="modalText" data->
+ 
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- dialog body -->
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                TxHash:
+                <div id="modalText">
 
-                    </div>
                 </div>
-                <!-- dialog buttons -->
-                <div class="modal-footer"><input id="btnPollReceipt" type="button" value="Get Receipt" class="btn btn-primary"></div>
             </div>
+            <!-- dialog buttons -->
+            <div class="modal-footer"><input id="btnPollReceipt" type="button" value="Get Receipt" class="btn btn-primary"></div>
         </div>
-    </div>
+    </div>        
 </div>
+
 
 <div class="row">
     <div class="col-sm-6">
@@ -114,11 +114,17 @@
                     contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                     dataType: "json",
                     success: function (response) {
-                         
-                        $('#modalText').html(response);
-                        
-                        $('#myModal').modal('show');
                         GetList();
+                       
+                        $('#modalText').html(response);
+                        //$(document.body).removeClass('jarallax');
+                        $('#myModal').modal({backdrop: 'static'},'show');
+                        
+                        //$(document.body).removeClass('modal-backdrop fade in');
+                        //$('.container .body-content').addClass('modal-open');
+                        //$('.container .body-content').addClass('modal-backdrop fade in');
+                        //$().add('#myModal');
+                        //$(document).addClass('jarallax');
                        },
                     failure: function (response) {
                            alert(response);
@@ -164,8 +170,6 @@
                     alert(response);
                 }
             });
-
-
         }
         function callGetReceiptPartial(hash) {
             var id = hash;
