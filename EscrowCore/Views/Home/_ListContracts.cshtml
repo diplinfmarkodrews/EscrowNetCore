@@ -67,7 +67,7 @@
                         <div><a target="_blank" href="@("https://ropsten.etherscan.io/tx/" + item.TransactionHash)">Etherscan</a> | </div>
                     }
                     @Html.ActionLink("Details", "Details", "Contract", new { id = item.ID }, null) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    @Html.ActionLink("Delete", "Delete", "Contract", new { id = item.ID }, null)
                 </td>
             </tr>
         }

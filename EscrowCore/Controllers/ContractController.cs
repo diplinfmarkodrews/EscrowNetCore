@@ -80,7 +80,7 @@ namespace EscrowCore.Controllers
                 return PartialView("~/Views/Home/_Receipt.cshtml", res);
             }
             catch (Exception e) {
-                return PartialView("~/Views/Shared/Error.cshtml", e);
+                return PartialView("~/Views/Shared/Error.cshtml");
             }
         }
         public async Task<ActionResult> DeleteAllTxs()
@@ -100,7 +100,29 @@ namespace EscrowCore.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-        public static async Task<IEnumerable<Models.Escrow>> getContracts()
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                using (var context = new ApplicationDbContext())
+                {
+                    var contract = context.DeployedContracts.Include(p => p.Receipt).Where(p=>p.ID == id).FirstOrDefault();
+
+                    if (contract.Receipt != null)
+                    {
+                        context.DeployReceipt.Remove(contract.Receipt);
+                    }
+                    context.DeployedContracts.Remove(contract);
+                    await context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            catch (Exception e) {
+                Log.Error(e, "Error at Delete");
+                return PartialView("~/Views/Shared/Error.cshtml");
+            }
+        }
+            public static async Task<IEnumerable<Models.Escrow>> getContracts()
         {
             IEnumerable<Escrow> res;
             using (var _context = new ApplicationDbContext())
